@@ -2,7 +2,7 @@ import mockup from "@/assets/phone-hand.png.asset.json";
 
 export function PhoneMock() {
   return (
-    <div aria-hidden="true" className="mx-auto w-full max-w-[420px]">
+    <div aria-hidden="true" className="w-full max-w-[300px] sm:max-w-[380px] lg:max-w-[420px]">
       <img
         src={mockup.url}
         alt=""

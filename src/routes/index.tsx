@@ -117,9 +117,13 @@ function Home() {
               </p>
             </div>
           </div>
-          <div className="kead-in kead-float order-last scale-[0.7] sm:scale-100" style={{ animationDelay: "320ms" }}>
+          <div
+            className="kead-in order-last -mb-6 flex items-end justify-center lg:kead-float lg:mb-0"
+            style={{ animationDelay: "320ms" }}
+          >
             <PhoneMock />
           </div>
+
         </div>
       </section>
       <div className="-mt-8 h-8 rounded-t-[2rem] bg-white" />
