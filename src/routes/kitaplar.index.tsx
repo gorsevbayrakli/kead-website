@@ -4,13 +4,13 @@ import { books, ageBands, verdictLabels, type AgeBand, type Verdict } from "@/da
 import { BookCard } from "@/components/BookCard";
 import { Chip } from "@/components/Chip";
 
-type BookSearch = { yas?: string; karar?: string; q?: string };
+type BookSearch = { yas?: string | undefined; karar?: string | undefined; q?: string | undefined };
 
 export const Route = createFileRoute("/kitaplar/")({
   validateSearch: (s: Record<string, unknown>): BookSearch => ({
-    yas: typeof s.yas === "string" ? s.yas : undefined,
-    karar: typeof s.karar === "string" ? s.karar : undefined,
-    q: typeof s.q === "string" ? s.q : undefined,
+    yas: typeof s['yas'] === "string" ? (s['yas'] as string) : undefined,
+    karar: typeof s['karar'] === "string" ? (s['karar'] as string) : undefined,
+    q: typeof s['q'] === "string" ? (s['q'] as string) : undefined,
   }),
   head: () => ({
     meta: [
@@ -48,10 +48,10 @@ const verdicts: Verdict[] = ["recommended", "guided", "restricted"];
 
 function BooksPage() {
   const search = Route.useSearch();
-  const navigate = useNavigate({ from: "/kitaplar" });
+  const navigate = useNavigate({ from: "/kitaplar/" });
 
   const set = (patch: Partial<BookSearch>) =>
-    navigate({ search: (prev) => ({ ...prev, ...patch }), replace: true });
+    navigate({ search: (prev: BookSearch) => ({ ...prev, ...patch }), replace: true });
 
   const q = search.q ?? "";
   const results = books.filter((b) => {
@@ -120,7 +120,7 @@ function BooksPage() {
           </p>
           <button
             type="button"
-            onClick={() => navigate({ search: {}, replace: true })}
+            onClick={() => navigate({ search: () => ({}), replace: true })}
             className="mt-5 rounded-full bg-sari px-6 py-3 text-sm font-bold text-petrol"
           >
             Filtreleri temizle
