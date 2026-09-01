@@ -1,24 +1,313 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import {
+  BookOpenCheck,
+  CalendarRange,
+  MessagesSquare,
+  Users,
+  BookX,
+  Tags,
+  EyeOff,
+} from "lucide-react";
+import { WaitlistForm } from "@/components/WaitlistForm";
+import { PhoneMock } from "@/components/PhoneMock";
+import { ReviewShowcase } from "@/components/ReviewShowcase";
+import { KidShelves } from "@/components/KidShelves";
+import { ArticleCard } from "@/components/ArticleCard";
+import { Stars } from "@/components/Stars";
+import { articles } from "@/data/articles";
+import { experts, initials } from "@/data/experts";
+import { faq } from "@/data/faq";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Kead — Çocuğunuzun eline geçen kitabı önce biz okuyoruz" },
+      {
+        name: "description",
+        content:
+          "Kead, her çocuk kitabını yaşa uygunluk, eğitici değer ve duygusal güvenlik açısından değerlendirir. Uzman görüşü ve gerçek ebeveyn deneyimi bir arada.",
+      },
+      { property: "og:title", content: "Kead — Çocuk kitaplarını önce biz okuyoruz" },
+      {
+        property: "og:description",
+        content: "Yaşa uygunluk, eğitici değer ve duygusal güvenlik ekseninde kitap değerlendirmeleri.",
+      },
+      { property: "og:url", content: "/" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+const trust = [
+  { icon: BookOpenCheck, text: "Uzman psikolog ve pedagog değerlendirmesi" },
+  { icon: CalendarRange, text: "Yaş bandına göre öneri" },
+  { icon: MessagesSquare, text: "Gerçek ebeveyn yorumları" },
+  { icon: Users, text: "Her çocuk için ayrı profil" },
+];
+
+const problems = [
+  { icon: BookX, text: "Arka kapak yazısı kitabın içeriğini anlatmıyor." },
+  { icon: Tags, text: "Yaş etiketi her yayınevinde başka anlama geliyor." },
+  { icon: EyeOff, text: "Korkutucu ya da örseleyici bölümleri okumadan fark edemiyorsunuz." },
+];
+
+const steps = [
+  {
+    title: "Çocuklarınızın profilini oluşturun.",
+    text: "Ad, doğum tarihi ve ilgi alanları. Birden fazla çocuk ekleyebilirsiniz.",
+  },
+  {
+    title: "Size özel önerileri görün.",
+    text: "Her çocuğun yaşına ve gelişim dönemine göre ayrı liste.",
+  },
+  {
+    title: "Okuyun, puanlayın, kütüphanenizi büyütün.",
+    text: "Değerlendirmeniz diğer ebeveynlere yol gösterir.",
+  },
+];
+
+const axes = [
+  {
+    title: "Yaş uygunluğu",
+    text: "Kelime düzeyi, cümle uzunluğu ve soyut kavram yoğunluğu birlikte değerlendirilir.",
+    score: 5,
+  },
+  {
+    title: "Eğitici değer",
+    text: "Kitabın çocuğa ne kazandırdığı; bilgi, kelime ya da bakış açısı.",
+    score: 4,
+  },
+  {
+    title: "Duygusal güvenlik",
+    text: "Korku, kayıp ve şiddet temalarının o yaşta nasıl karşılık bulduğu.",
+    score: 4,
+  },
+];
+
+function Home() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      {/* Hero */}
+      <section className="on-yellow bg-sari pb-8">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 pt-10 pb-6 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:pt-16">
+          <div>
+            <h1 className="kead-in text-petrol" style={{ animationDelay: "80ms" }}>
+              Çocuğunuzun eline geçen kitabı önce biz okuyoruz.
+            </h1>
+            <p
+              className="kead-in mt-5 max-w-xl text-lg leading-relaxed text-mure"
+              style={{ animationDelay: "160ms" }}
+            >
+              Kead, her çocuk kitabını yaşa uygunluk, eğitici değer ve duygusal güvenlik açısından
+              değerlendirir. Uzman görüşü ve gerçek ebeveyn deneyimi bir arada.
+            </p>
+            <div className="kead-in mt-7 max-w-lg" style={{ animationDelay: "240ms" }} id="katil">
+              <WaitlistForm />
+              <p className="mt-3 text-sm text-mure/75">
+                Yalnızca lansman duyurusu için kullanılır, spam yok.
+              </p>
+            </div>
+          </div>
+          <div className="kead-in order-last scale-[0.7] sm:scale-100" style={{ animationDelay: "320ms" }}>
+            <PhoneMock />
+          </div>
+        </div>
+      </section>
+      <div className="-mt-8 h-8 rounded-t-[2rem] bg-white" />
+
+      {/* Güven şeridi */}
+      <section className="bg-white" aria-label="Kead ne sunuyor">
+        <div className="mx-auto grid max-w-6xl gap-5 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
+          {trust.map((t) => (
+            <div key={t.text} className="flex items-start gap-3">
+              <t.icon className="mt-0.5 shrink-0 text-petrol" size={20} aria-hidden="true" />
+              <p className="min-w-0 text-sm font-semibold text-mure">{t.text}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Problem */}
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <h2 className="max-w-2xl">Kitapçıda 20 dakika, elinizde hâlâ karar yok.</h2>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {problems.map((p) => (
+              <div key={p.text} className="rounded-2xl bg-sis p-6">
+                <p.icon className="text-petrol" size={22} aria-hidden="true" />
+                <p className="mt-4 text-base leading-relaxed font-semibold text-mure">{p.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Nasıl çalışır */}
+      <section className="bg-white pb-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <h2>Nasıl çalışır?</h2>
+          <ol className="mt-8 grid gap-8 md:grid-cols-3">
+            {steps.map((s, i) => (
+              <li key={s.title}>
+                <span className="grid h-12 w-12 place-items-center rounded-full bg-sari text-xl font-bold text-petrol">
+                  {i + 1}
+                </span>
+                <h3 className="mt-4 text-xl">{s.title}</h3>
+                <p className="mt-2 text-base leading-relaxed text-mure/85">{s.text}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* Değerlendirme sistemi */}
+      <section className="on-dark bg-petrol py-16 text-white">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <h2 className="text-white">Her kitap üç eksende değerlendirilir.</h2>
+          <div className="mt-9 grid gap-10 lg:grid-cols-2">
+            <div className="space-y-7">
+              {axes.map((a) => (
+                <div key={a.title}>
+                  <h3 className="text-sari">{a.title}</h3>
+                  <p className="mt-1.5 max-w-md text-base leading-relaxed text-white/85">{a.text}</p>
+                  <div className="mt-2">
+                    <Stars value={a.score} label={`Örnek puan: 5 üzerinden ${a.score}`} />
+                  </div>
+                </div>
+              ))}
+            </div>
+            <ReviewShowcase />
+          </div>
+
+          <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/85">
+            <li className="flex items-center gap-2">
+              <span className="h-3 w-3 rounded-full bg-nane" aria-hidden="true" /> Kesinlikle tavsiye
+              edilir — yaş bandına tam uyuyor.
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="h-3 w-3 rounded-full bg-sari" aria-hidden="true" /> Ebeveyn
+              rehberliğiyle önerilir — birlikte okunmalı.
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="h-3 w-3 rounded-full bg-mercan" aria-hidden="true" /> Bu yaş için
+              önerilmez — daha büyük yaşta uygun.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      {/* Çocuk profilleri */}
+      <section className="bg-white py-16">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2">
+          <div>
+            <h2>İki çocuk, iki ayrı raf.</h2>
+            <p className="mt-4 max-w-lg text-base leading-relaxed text-mure/85">
+              Aynı hesapta her çocuğun kendi profili olur. Beş yaşındaki çocuğunuza duygu kitapları
+              önerilirken, dokuz yaşındaki çocuğunuz bilgi kitapları ve ilk romanlarla karşılaşır.
+            </p>
+            <p className="mt-3 max-w-lg text-base leading-relaxed text-mure/85">
+              Kitaplıklar, okuma geçmişi ve puanlamalar da ayrı tutulur. Profiller arasında tek
+              dokunuşla geçersiniz.
+            </p>
+          </div>
+          <KidShelves />
+        </div>
+      </section>
+
+      {/* Konular */}
+      <section className="bg-sis py-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <h2 className="max-w-2xl">Sadece kitap değil, çocuğunuzu da anlatıyoruz.</h2>
+            <Link to="/konular" className="text-sm font-bold text-petrol underline underline-offset-4">
+              Tümü
+            </Link>
+          </div>
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+            {articles.slice(0, 3).map((a) => (
+              <ArticleCard key={a.slug} article={a} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Uzmanlar */}
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <h2>Değerlendirmeler uzman katkısıyla hazırlanıyor.</h2>
+          <p className="mt-4 max-w-2xl text-base leading-relaxed text-mure/85">
+            Her kitap önce editör ekibimiz tarafından baştan sona okunuyor. Duygusal güvenlik
+            ekseninde tereddüt yaratan kitaplar danışman uzmanlarımıza yönlendiriliyor. Uzman görüşü
+            yayımlandığında kimin yazdığı adı ve unvanıyla birlikte görünüyor.
+          </p>
+          <div className="mt-8 grid gap-5 md:grid-cols-3">
+            {experts.map((e) => (
+              <div key={e.name} className="rounded-2xl bg-sis p-6">
+                <span className="grid h-12 w-12 place-items-center rounded-full bg-petrol font-bold text-white">
+                  {initials(e.name)}
+                </span>
+                <h3 className="mt-4 text-lg">{e.name}</h3>
+                <p className="text-sm font-semibold text-muted-foreground">{e.title}</p>
+                <p className="mt-2 text-sm text-mure/85">{e.focus}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SSS */}
+      <section className="bg-white pb-16">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <h2>Sık sorulanlar</h2>
+            <Link to="/sss" className="text-sm font-bold text-petrol underline underline-offset-4">
+              Tüm sorular
+            </Link>
+          </div>
+          <Accordion type="single" collapsible className="mt-6">
+            {faq.slice(0, 4).map((f, i) => (
+              <AccordionItem key={f.q} value={`q${i}`}>
+                <AccordionTrigger className="text-left text-base font-bold text-petrol">
+                  {f.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-base leading-relaxed text-mure/85">
+                  {f.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      {/* Kapanış CTA */}
+      <section className="on-yellow bg-sari py-16">
+        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+          <h2>Bir sonraki kitabı seçerken yalnız değilsiniz.</h2>
+          <div className="mx-auto mt-7 max-w-lg text-left">
+            <WaitlistForm id="cta-email" />
+          </div>
+          <p className="mt-5 text-sm font-semibold text-mure">iOS ve Android'de yakında</p>
+          <div className="mt-3 flex flex-wrap justify-center gap-3">
+            {["App Store", "Google Play"].map((s) => (
+              <span
+                key={s}
+                aria-disabled="true"
+                className="inline-flex items-center gap-2 rounded-full border-[1.5px] border-petrol/30 px-4 py-2 text-sm font-semibold text-petrol/60"
+              >
+                {s}
+                <span className="rounded-full bg-petrol/10 px-2 py-0.5 text-xs">yakında</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
