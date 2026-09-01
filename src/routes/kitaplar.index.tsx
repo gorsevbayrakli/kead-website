@@ -4,10 +4,10 @@ import { books, ageBands, verdictLabels, type AgeBand, type Verdict } from "@/da
 import { BookCard } from "@/components/BookCard";
 import { Chip } from "@/components/Chip";
 
-type Search = { yas?: string; karar?: string; q?: string };
+type BookSearch = { yas?: string; karar?: string; q?: string };
 
 export const Route = createFileRoute("/kitaplar/")({
-  validateSearch: (s: Record<string, unknown>): Search => ({
+  validateSearch: (s: Record<string, unknown>): BookSearch => ({
     yas: typeof s.yas === "string" ? s.yas : undefined,
     karar: typeof s.karar === "string" ? s.karar : undefined,
     q: typeof s.q === "string" ? s.q : undefined,
@@ -50,7 +50,7 @@ function BooksPage() {
   const search = Route.useSearch();
   const navigate = useNavigate({ from: "/kitaplar" });
 
-  const set = (patch: Partial<Search>) =>
+  const set = (patch: Partial<BookSearch>) =>
     navigate({ search: (prev) => ({ ...prev, ...patch }), replace: true });
 
   const q = search.q ?? "";

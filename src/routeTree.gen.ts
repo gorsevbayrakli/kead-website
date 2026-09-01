@@ -10,33 +10,80 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as KitaplarIndexRouteImport } from './routes/kitaplar.index'
+import { Route as KitaplarSlugRouteImport } from './routes/kitaplar.$slug'
+import { Route as KonularIndexRouteImport } from './routes/konular.index'
+import { Route as KonularSlugRouteImport } from './routes/konular.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KitaplarIndexRoute = KitaplarIndexRouteImport.update({
+  id: '/kitaplar/',
+  path: '/kitaplar/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KitaplarSlugRoute = KitaplarSlugRouteImport.update({
+  id: '/kitaplar/$slug',
+  path: '/kitaplar/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KonularIndexRoute = KonularIndexRouteImport.update({
+  id: '/konular/',
+  path: '/konular/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KonularSlugRoute = KonularSlugRouteImport.update({
+  id: '/konular/$slug',
+  path: '/konular/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/kitaplar/$slug': typeof KitaplarSlugRoute
+  '/konular/$slug': typeof KonularSlugRoute
+  '/kitaplar/': typeof KitaplarIndexRoute
+  '/konular/': typeof KonularIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/kitaplar/$slug': typeof KitaplarSlugRoute
+  '/konular/$slug': typeof KonularSlugRoute
+  '/kitaplar': typeof KitaplarIndexRoute
+  '/konular': typeof KonularIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/kitaplar/$slug': typeof KitaplarSlugRoute
+  '/konular/$slug': typeof KonularSlugRoute
+  '/kitaplar/': typeof KitaplarIndexRoute
+  '/konular/': typeof KonularIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    '/' | '/kitaplar/$slug' | '/konular/$slug' | '/kitaplar/' | '/konular/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/kitaplar/$slug' | '/konular/$slug' | '/kitaplar' | '/konular'
+  id:
+    | '__root__'
+    | '/'
+    | '/kitaplar/$slug'
+    | '/konular/$slug'
+    | '/kitaplar/'
+    | '/konular/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  KitaplarSlugRoute: typeof KitaplarSlugRoute
+  KonularSlugRoute: typeof KonularSlugRoute
+  KitaplarIndexRoute: typeof KitaplarIndexRoute
+  KonularIndexRoute: typeof KonularIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +95,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kitaplar/': {
+      id: '/kitaplar/'
+      path: '/kitaplar'
+      fullPath: '/kitaplar/'
+      preLoaderRoute: typeof KitaplarIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kitaplar/$slug': {
+      id: '/kitaplar/$slug'
+      path: '/kitaplar/$slug'
+      fullPath: '/kitaplar/$slug'
+      preLoaderRoute: typeof KitaplarSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/konular/': {
+      id: '/konular/'
+      path: '/konular'
+      fullPath: '/konular/'
+      preLoaderRoute: typeof KonularIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/konular/$slug': {
+      id: '/konular/$slug'
+      path: '/konular/$slug'
+      fullPath: '/konular/$slug'
+      preLoaderRoute: typeof KonularSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  KitaplarSlugRoute: KitaplarSlugRoute,
+  KonularSlugRoute: KonularSlugRoute,
+  KitaplarIndexRoute: KitaplarIndexRoute,
+  KonularIndexRoute: KonularIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
