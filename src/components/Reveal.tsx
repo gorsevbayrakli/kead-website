@@ -79,7 +79,7 @@ export function RevealGroup({
   return (
     <div className={className}>
       {children.map((child, i) => (
-        <Reveal key={i} variant={variant} delay={i * step} className="contents-none">
+        <Reveal key={i} variant={variant} delay={i * step} className="h-full">
           {child}
         </Reveal>
       ))}
