@@ -10,6 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as HakkimizdaRouteImport } from './routes/hakkimizda'
+import { Route as IletisimRouteImport } from './routes/iletisim'
+import { Route as NasilCalisirRouteImport } from './routes/nasil-calisir'
+import { Route as SssRouteImport } from './routes/sss'
 import { Route as KitaplarIndexRouteImport } from './routes/kitaplar.index'
 import { Route as KitaplarSlugRouteImport } from './routes/kitaplar.$slug'
 import { Route as KonularIndexRouteImport } from './routes/konular.index'
@@ -18,6 +22,26 @@ import { Route as KonularSlugRouteImport } from './routes/konular.$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HakkimizdaRoute = HakkimizdaRouteImport.update({
+  id: '/hakkimizda',
+  path: '/hakkimizda',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IletisimRoute = IletisimRouteImport.update({
+  id: '/iletisim',
+  path: '/iletisim',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NasilCalisirRoute = NasilCalisirRouteImport.update({
+  id: '/nasil-calisir',
+  path: '/nasil-calisir',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SssRoute = SssRouteImport.update({
+  id: '/sss',
+  path: '/sss',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KitaplarIndexRoute = KitaplarIndexRouteImport.update({
@@ -43,6 +67,10 @@ const KonularSlugRoute = KonularSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/hakkimizda': typeof HakkimizdaRoute
+  '/iletisim': typeof IletisimRoute
+  '/nasil-calisir': typeof NasilCalisirRoute
+  '/sss': typeof SssRoute
   '/kitaplar/$slug': typeof KitaplarSlugRoute
   '/konular/$slug': typeof KonularSlugRoute
   '/kitaplar/': typeof KitaplarIndexRoute
@@ -50,6 +78,10 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/hakkimizda': typeof HakkimizdaRoute
+  '/iletisim': typeof IletisimRoute
+  '/nasil-calisir': typeof NasilCalisirRoute
+  '/sss': typeof SssRoute
   '/kitaplar/$slug': typeof KitaplarSlugRoute
   '/konular/$slug': typeof KonularSlugRoute
   '/kitaplar': typeof KitaplarIndexRoute
@@ -58,6 +90,10 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/hakkimizda': typeof HakkimizdaRoute
+  '/iletisim': typeof IletisimRoute
+  '/nasil-calisir': typeof NasilCalisirRoute
+  '/sss': typeof SssRoute
   '/kitaplar/$slug': typeof KitaplarSlugRoute
   '/konular/$slug': typeof KonularSlugRoute
   '/kitaplar/': typeof KitaplarIndexRoute
@@ -66,12 +102,33 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/kitaplar/$slug' | '/konular/$slug' | '/kitaplar/' | '/konular/'
+    | '/'
+    | '/hakkimizda'
+    | '/iletisim'
+    | '/nasil-calisir'
+    | '/sss'
+    | '/kitaplar/$slug'
+    | '/konular/$slug'
+    | '/kitaplar/'
+    | '/konular/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/kitaplar/$slug' | '/konular/$slug' | '/kitaplar' | '/konular'
+  to:
+    | '/'
+    | '/hakkimizda'
+    | '/iletisim'
+    | '/nasil-calisir'
+    | '/sss'
+    | '/kitaplar/$slug'
+    | '/konular/$slug'
+    | '/kitaplar'
+    | '/konular'
   id:
     | '__root__'
     | '/'
+    | '/hakkimizda'
+    | '/iletisim'
+    | '/nasil-calisir'
+    | '/sss'
     | '/kitaplar/$slug'
     | '/konular/$slug'
     | '/kitaplar/'
@@ -80,6 +137,10 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  HakkimizdaRoute: typeof HakkimizdaRoute
+  IletisimRoute: typeof IletisimRoute
+  NasilCalisirRoute: typeof NasilCalisirRoute
+  SssRoute: typeof SssRoute
   KitaplarSlugRoute: typeof KitaplarSlugRoute
   KonularSlugRoute: typeof KonularSlugRoute
   KitaplarIndexRoute: typeof KitaplarIndexRoute
@@ -93,6 +154,34 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hakkimizda': {
+      id: '/hakkimizda'
+      path: '/hakkimizda'
+      fullPath: '/hakkimizda'
+      preLoaderRoute: typeof HakkimizdaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/iletisim': {
+      id: '/iletisim'
+      path: '/iletisim'
+      fullPath: '/iletisim'
+      preLoaderRoute: typeof IletisimRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nasil-calisir': {
+      id: '/nasil-calisir'
+      path: '/nasil-calisir'
+      fullPath: '/nasil-calisir'
+      preLoaderRoute: typeof NasilCalisirRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sss': {
+      id: '/sss'
+      path: '/sss'
+      fullPath: '/sss'
+      preLoaderRoute: typeof SssRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kitaplar/': {
@@ -128,6 +217,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  HakkimizdaRoute: HakkimizdaRoute,
+  IletisimRoute: IletisimRoute,
+  NasilCalisirRoute: NasilCalisirRoute,
+  SssRoute: SssRoute,
   KitaplarSlugRoute: KitaplarSlugRoute,
   KonularSlugRoute: KonularSlugRoute,
   KitaplarIndexRoute: KitaplarIndexRoute,
