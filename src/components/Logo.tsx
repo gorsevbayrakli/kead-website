@@ -1,29 +1,39 @@
-export function LogoMark({ className = "h-9 w-9" }: { className?: string }) {
+import markPetrol from "@/assets/kead-mark-petrol.png.asset.json";
+import markSari from "@/assets/kead-mark-sari.png.asset.json";
+import logoPetrol from "@/assets/kead-petrol.png.asset.json";
+import logoSari from "@/assets/kead-sari.png.asset.json";
+
+export function LogoMark({
+  className = "h-9 w-9",
+  tone = "petrol",
+}: {
+  className?: string;
+  tone?: "petrol" | "sari";
+}) {
   return (
-    <svg viewBox="0 0 48 48" className={className} role="img" aria-label="Kead simgesi">
-      <path
-        d="M8 8c0-1.6 1.8-2.5 3.1-1.6L20 12.7V26c0 6.6-2.7 10-6 10s-6-3.4-6-10V8Z"
-        fill="currentColor"
-      />
-      <path
-        d="M40 8c0-1.6-1.8-2.5-3.1-1.6L28 12.7V26c0 6.6 2.7 10 6 10s6-3.4 6-10V8Z"
-        fill="currentColor"
-      />
-      <path d="M8 20h32v6c0 9.4-7.2 16-16 16S8 35.4 8 26v-6Z" fill="currentColor" />
-      <path
-        d="m24 21 2.6 4.3 4.9 1.2-3.3 3.9.4 5-4.6-2-4.6 2 .4-5-3.3-3.9 4.9-1.2L24 21Z"
-        fill="var(--color-sari)"
-      />
-    </svg>
+    <img
+      src={tone === "petrol" ? markPetrol.url : markSari.url}
+      alt="Kead"
+      className={`${className} object-contain`}
+      loading="lazy"
+      decoding="async"
+    />
   );
 }
 
-export function Wordmark({ tone = "petrol" }: { tone?: "petrol" | "sari" }) {
-  const color = tone === "petrol" ? "text-petrol" : "text-sari";
+export function Wordmark({
+  tone = "petrol",
+  className = "h-8",
+}: {
+  tone?: "petrol" | "sari";
+  className?: string;
+}) {
   return (
-    <span className={`flex items-center gap-2 ${color}`}>
-      <LogoMark className="h-8 w-8" />
-      <span className="text-2xl font-bold tracking-tight lowercase">kead</span>
-    </span>
+    <img
+      src={tone === "petrol" ? logoPetrol.url : logoSari.url}
+      alt="Kead"
+      className={`${className} w-auto object-contain`}
+      decoding="async"
+    />
   );
 }
