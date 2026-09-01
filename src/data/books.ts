@@ -7,7 +7,7 @@ export interface BookComment {
   stars: number;
   text: string;
   likes: number;
-  replies?: { author: string; date: string; text: string }[];
+  replies?: { author: string; date: string; text: string }[] | undefined;
 }
 
 export interface Book {

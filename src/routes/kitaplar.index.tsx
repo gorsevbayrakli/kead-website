@@ -120,7 +120,7 @@ function BooksPage() {
           </p>
           <button
             type="button"
-            onClick={() => navigate({ to: "/kitaplar", search: {}, replace: true })}
+            onClick={() => navigate({ to: "/kitaplar", search: () => ({}) as BookSearch, replace: true })}
             className="mt-5 rounded-full bg-sari px-6 py-3 text-sm font-bold text-petrol"
           >
             Filtreleri temizle

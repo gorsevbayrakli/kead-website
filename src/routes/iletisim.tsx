@@ -23,12 +23,12 @@ const subjects = ["Genel soru", "Kitap önerisi", "Yayınevi başvurusu", "Bası
 
 function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", subject: subjects[0], message: "" });
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
   const [sent, setSent] = useState(false);
 
   function submit(e: FormEvent) {
     e.preventDefault();
-    const next: Record<string, string> = {};
+    const next: { name?: string; email?: string; message?: string } = {};
     if (form.name.trim().length < 2) next.name = "Adınızı yazın.";
     if (!/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(form.email.trim()))
       next.email = "Geçerli bir e-posta adresi girin.";
