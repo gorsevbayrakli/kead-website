@@ -14,6 +14,8 @@ import { ReviewShowcase } from "@/components/ReviewShowcase";
 import { KidShelves } from "@/components/KidShelves";
 import { ArticleCard } from "@/components/ArticleCard";
 import { Stars } from "@/components/Stars";
+import { Reveal } from "@/components/Reveal";
+import { CoverMarquee } from "@/components/CoverMarquee";
 import { articles } from "@/data/articles";
 import { experts, initials } from "@/data/experts";
 import { faq } from "@/data/faq";
@@ -115,7 +117,7 @@ function Home() {
               </p>
             </div>
           </div>
-          <div className="kead-in order-last scale-[0.7] sm:scale-100" style={{ animationDelay: "320ms" }}>
+          <div className="kead-in kead-float order-last scale-[0.7] sm:scale-100" style={{ animationDelay: "320ms" }}>
             <PhoneMock />
           </div>
         </div>
@@ -125,11 +127,11 @@ function Home() {
       {/* Güven şeridi */}
       <section className="bg-white" aria-label="Kead ne sunuyor">
         <div className="mx-auto grid max-w-6xl gap-5 px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4">
-          {trust.map((t) => (
-            <div key={t.text} className="flex items-start gap-3">
+          {trust.map((t, i) => (
+            <Reveal key={t.text} delay={i * 80} className="flex items-start gap-3">
               <t.icon className="mt-0.5 shrink-0 text-petrol" size={20} aria-hidden="true" />
               <p className="min-w-0 text-sm font-semibold text-mure">{t.text}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -137,13 +139,15 @@ function Home() {
       {/* Problem */}
       <section className="bg-white py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <h2 className="max-w-2xl">Kitapçıda 20 dakika, elinizde hâlâ karar yok.</h2>
+          <Reveal as="h2" className="max-w-2xl">
+            Kitapçıda 20 dakika, elinizde hâlâ karar yok.
+          </Reveal>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {problems.map((p) => (
-              <div key={p.text} className="rounded-2xl bg-sis p-6">
+            {problems.map((p, i) => (
+              <Reveal key={p.text} delay={i * 100} className="hover-lift rounded-2xl bg-sis p-6">
                 <p.icon className="text-petrol" size={22} aria-hidden="true" />
                 <p className="mt-4 text-base leading-relaxed font-semibold text-mure">{p.text}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -152,16 +156,16 @@ function Home() {
       {/* Nasıl çalışır */}
       <section className="bg-white pb-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <h2>Nasıl çalışır?</h2>
+          <Reveal as="h2">Nasıl çalışır?</Reveal>
           <ol className="mt-8 grid gap-8 md:grid-cols-3">
             {steps.map((s, i) => (
-              <li key={s.title}>
+              <Reveal as="li" key={s.title} delay={i * 120}>
                 <span className="grid h-12 w-12 place-items-center rounded-full bg-sari text-xl font-bold text-petrol">
                   {i + 1}
                 </span>
                 <h3 className="mt-4 text-xl">{s.title}</h3>
                 <p className="mt-2 text-base leading-relaxed text-mure/85">{s.text}</p>
-              </li>
+              </Reveal>
             ))}
           </ol>
         </div>
@@ -170,20 +174,24 @@ function Home() {
       {/* Değerlendirme sistemi */}
       <section className="on-dark bg-petrol py-16 text-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <h2 className="text-white">Her kitap üç eksende değerlendirilir.</h2>
+          <Reveal as="h2" className="text-white">
+            Her kitap üç eksende değerlendirilir.
+          </Reveal>
           <div className="mt-9 grid gap-10 lg:grid-cols-2">
             <div className="space-y-7">
-              {axes.map((a) => (
-                <div key={a.title}>
+              {axes.map((a, i) => (
+                <Reveal key={a.title} variant="left" delay={i * 120}>
                   <h3 className="text-sari">{a.title}</h3>
                   <p className="mt-1.5 max-w-md text-base leading-relaxed text-white/85">{a.text}</p>
                   <div className="mt-2">
                     <Stars value={a.score} label={`Örnek puan: 5 üzerinden ${a.score}`} />
                   </div>
-                </div>
+                </Reveal>
               ))}
             </div>
-            <ReviewShowcase />
+            <Reveal variant="right" delay={120}>
+              <ReviewShowcase />
+            </Reveal>
           </div>
 
           <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/85">
@@ -206,7 +214,7 @@ function Home() {
       {/* Çocuk profilleri */}
       <section className="bg-white py-16">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-2">
-          <div>
+          <Reveal variant="left">
             <h2>İki çocuk, iki ayrı raf.</h2>
             <p className="mt-4 max-w-lg text-base leading-relaxed text-mure/85">
               Aynı hesapta her çocuğun kendi profili olur. Beş yaşındaki çocuğunuza duygu kitapları
@@ -216,8 +224,22 @@ function Home() {
               Kitaplıklar, okuma geçmişi ve puanlamalar da ayrı tutulur. Profiller arasında tek
               dokunuşla geçersiniz.
             </p>
-          </div>
-          <KidShelves />
+          </Reveal>
+          <Reveal variant="right">
+            <KidShelves />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Kitap şeridi */}
+      <section className="bg-white pb-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <Reveal as="h2" className="max-w-2xl">
+            Rafımızda okunmuş, puanlanmış yüzlerce kitap var.
+          </Reveal>
+        </div>
+        <div className="mt-8">
+          <CoverMarquee />
         </div>
       </section>
 
@@ -231,8 +253,10 @@ function Home() {
             </Link>
           </div>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {articles.slice(0, 3).map((a) => (
-              <ArticleCard key={a.slug} article={a} />
+            {articles.slice(0, 3).map((a, i) => (
+              <Reveal key={a.slug} delay={i * 110} className="h-full">
+                <ArticleCard article={a} />
+              </Reveal>
             ))}
           </div>
         </div>
@@ -248,15 +272,15 @@ function Home() {
             yayımlandığında kimin yazdığı adı ve unvanıyla birlikte görünüyor.
           </p>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {experts.map((e) => (
-              <div key={e.name} className="rounded-2xl bg-sis p-6">
+            {experts.map((e, i) => (
+              <Reveal key={e.name} delay={i * 110} className="hover-lift rounded-2xl bg-sis p-6">
                 <span className="grid h-12 w-12 place-items-center rounded-full bg-petrol font-bold text-white">
                   {initials(e.name)}
                 </span>
                 <h3 className="mt-4 text-lg">{e.name}</h3>
                 <p className="text-sm font-semibold text-muted-foreground">{e.title}</p>
                 <p className="mt-2 text-sm text-mure/85">{e.focus}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

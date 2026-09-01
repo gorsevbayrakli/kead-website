@@ -14,10 +14,10 @@ export function BookCard({ book }: { book: Book }) {
     <Link
       to="/kitaplar/$slug"
       params={{ slug: book.slug }}
-      className="group block rounded-3xl transition-transform duration-150 hover:-translate-y-0.5"
+      className="group hover-lift block rounded-3xl"
     >
       <div className="relative">
-        <BookCover book={book} />
+        <BookCover book={book} className="transition-transform duration-500 group-hover:scale-[1.03]" />
         <span className="absolute bottom-2 left-2 inline-flex items-center gap-1 rounded-full bg-white px-2.5 py-1 text-sm font-bold text-petrol">
           <Star size={14} className="fill-sari text-sari" aria-hidden="true" />
           {avgRating(book).toFixed(1)}
