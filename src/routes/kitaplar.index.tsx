@@ -48,10 +48,10 @@ const verdicts: Verdict[] = ["recommended", "guided", "restricted"];
 
 function BooksPage() {
   const search = Route.useSearch();
-  const navigate = useNavigate({ from: "/kitaplar/" });
+  const navigate = useNavigate();
 
-  const set = (patch: Partial<BookSearch>) =>
-    navigate({ search: (prev: BookSearch) => ({ ...prev, ...patch }), replace: true });
+  const set = (patch: BookSearch) =>
+    navigate({ to: "/kitaplar", search: { ...search, ...patch }, replace: true });
 
   const q = search.q ?? "";
   const results = books.filter((b) => {
@@ -120,7 +120,7 @@ function BooksPage() {
           </p>
           <button
             type="button"
-            onClick={() => navigate({ search: () => ({}), replace: true })}
+            onClick={() => navigate({ to: "/kitaplar", search: {}, replace: true })}
             className="mt-5 rounded-full bg-sari px-6 py-3 text-sm font-bold text-petrol"
           >
             Filtreleri temizle
