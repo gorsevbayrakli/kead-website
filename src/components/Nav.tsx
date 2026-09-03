@@ -3,12 +3,14 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { Wordmark } from "./Logo";
 
-const links = [
-  { to: "/nasil-calisir", label: "Nasıl çalışır" },
-  { to: "/kitaplar", label: "Kitaplar" },
-  { to: "/konular", label: "Konular" },
-  { to: "/hakkimizda", label: "Hakkımızda" },
-] as const;
+type NavLink = { to: string; label: string; hash?: string };
+
+const links: NavLink[] = [
+  { to: "/nasil-degerlendiriyoruz", label: "Nasıl Değerlendiriyoruz" },
+  { to: "/yas-bantlari", label: "Yaş Bantları" },
+  { to: "/kirmizi-bayraklar", label: "Kırmızı Bayraklar" },
+  { to: "/", hash: "katil", label: "Erken Erişim" },
+];
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -43,13 +45,15 @@ export function Nav() {
           <Wordmark />
         </Link>
 
-        <ul className="hidden items-center gap-7 lg:flex">
+        <ul className="hidden items-center gap-6 xl:gap-7 lg:flex">
           {links.map((l) => (
-            <li key={l.to}>
+            <li key={l.to + (l.hash ?? "")}>
               <Link
                 to={l.to}
+                {...(l.hash ? { hash: l.hash } : {})}
                 className="text-[0.95rem] font-semibold text-mure/85 hover:text-petrol"
                 activeProps={{ className: "text-petrol" }}
+                activeOptions={{ exact: true, includeHash: false }}
               >
                 {l.label}
               </Link>
@@ -93,9 +97,10 @@ export function Nav() {
           </div>
           <ul className="flex flex-col gap-1 px-4 pt-4">
             {links.map((l) => (
-              <li key={l.to}>
+              <li key={l.to + (l.hash ?? "")}>
                 <Link
                   to={l.to}
+                  {...(l.hash ? { hash: l.hash } : {})}
                   onClick={() => setOpen(false)}
                   className="block rounded-2xl px-3 py-4 text-2xl font-bold text-petrol"
                 >
