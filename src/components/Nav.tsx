@@ -43,13 +43,15 @@ export function Nav() {
           <Wordmark />
         </Link>
 
-        <ul className="hidden items-center gap-7 lg:flex">
+        <ul className="hidden items-center gap-6 xl:gap-7 lg:flex">
           {links.map((l) => (
-            <li key={l.to}>
+            <li key={l.to + (l.hash ?? "")}>
               <Link
                 to={l.to}
+                hash={l.hash}
                 className="text-[0.95rem] font-semibold text-mure/85 hover:text-petrol"
                 activeProps={{ className: "text-petrol" }}
+                activeOptions={{ exact: true, includeHash: false }}
               >
                 {l.label}
               </Link>
