@@ -4,10 +4,10 @@ import { Menu, X } from "lucide-react";
 import { Wordmark } from "./Logo";
 
 const links = [
-  { to: "/nasil-calisir", label: "Nasıl çalışır" },
-  { to: "/kitaplar", label: "Kitaplar" },
-  { to: "/konular", label: "Konular" },
-  { to: "/hakkimizda", label: "Hakkımızda" },
+  { to: "/nasil-degerlendiriyoruz", label: "Nasıl Değerlendiriyoruz" },
+  { to: "/yas-bantlari", label: "Yaş Bantları" },
+  { to: "/kirmizi-bayraklar", label: "Kırmızı Bayraklar" },
+  { to: "/", hash: "katil" as const, label: "Erken Erişim" },
 ] as const;
 
 export function Nav() {
