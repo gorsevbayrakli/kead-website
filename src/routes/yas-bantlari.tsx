@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { WaitlistForm } from "@/components/WaitlistForm";
-import { ageBands } from "@/data/books";
+import { ageBands, type AgeBand } from "@/data/books";
 
 export const Route = createFileRoute("/yas-bantlari")({
   head: () => ({
