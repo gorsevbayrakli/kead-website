@@ -50,7 +50,7 @@ export function Nav() {
             <li key={l.to + (l.hash ?? "")}>
               <Link
                 to={l.to}
-                hash={l.hash}
+                {...(l.hash ? { hash: l.hash } : {})}
                 className="text-[0.95rem] font-semibold text-mure/85 hover:text-petrol"
                 activeProps={{ className: "text-petrol" }}
                 activeOptions={{ exact: true, includeHash: false }}
