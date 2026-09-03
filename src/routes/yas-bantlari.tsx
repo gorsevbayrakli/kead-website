@@ -23,7 +23,7 @@ export const Route = createFileRoute("/yas-bantlari")({
   component: AgeBandsPage,
 });
 
-const descriptions: Record<string, { title: string; traits: string[]; focus: string }> = {
+const descriptions: Record<AgeBand, { title: string; traits: string[]; focus: string }> = {
   "0-3": {
     title: "İlk Kelimeler ve Ortak Dikkat",
     traits: ["Kalın sayfalar", "Tekrar ve ritim", "Az metin, çok resim", "Günlük rutinler"],
