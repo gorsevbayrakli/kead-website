@@ -83,7 +83,7 @@ function EvaluationPage() {
                 <span className="text-2xl font-bold text-petrol">{a.score}</span>
               </div>
               <div className="mt-3">
-                <Meter value={a.score} variant="petrol" />
+                <Meter label={a.title} value={a.score} />
               </div>
               <p className="mt-4 text-base leading-relaxed text-mure/85">{a.text}</p>
             </div>
