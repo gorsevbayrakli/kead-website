@@ -95,9 +95,10 @@ export function Nav() {
           </div>
           <ul className="flex flex-col gap-1 px-4 pt-4">
             {links.map((l) => (
-              <li key={l.to}>
+              <li key={l.to + (l.hash ?? "")}>
                 <Link
                   to={l.to}
+                  hash={l.hash}
                   onClick={() => setOpen(false)}
                   className="block rounded-2xl px-3 py-4 text-2xl font-bold text-petrol"
                 >
