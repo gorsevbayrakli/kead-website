@@ -3,12 +3,14 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { Wordmark } from "./Logo";
 
-const links = [
+type NavLink = { to: string; label: string; hash?: string };
+
+const links: NavLink[] = [
   { to: "/nasil-degerlendiriyoruz", label: "Nasıl Değerlendiriyoruz" },
   { to: "/yas-bantlari", label: "Yaş Bantları" },
   { to: "/kirmizi-bayraklar", label: "Kırmızı Bayraklar" },
-  { to: "/", hash: "katil" as const, label: "Erken Erişim" },
-] as const;
+  { to: "/", hash: "katil", label: "Erken Erişim" },
+];
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
