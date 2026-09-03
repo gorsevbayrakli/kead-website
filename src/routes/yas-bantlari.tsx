@@ -67,7 +67,7 @@ function AgeBandsPage() {
       <section className="mx-auto max-w-[42rem] px-4 py-14 sm:px-6">
         <div className="space-y-6">
           {ageBands.map((band) => {
-            const d = descriptions[band];
+            const d = descriptions[band]!;
             return (
               <div
                 key={band}
