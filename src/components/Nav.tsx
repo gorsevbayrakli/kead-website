@@ -100,7 +100,7 @@ export function Nav() {
               <li key={l.to + (l.hash ?? "")}>
                 <Link
                   to={l.to}
-                  hash={l.hash}
+                  {...(l.hash ? { hash: l.hash } : {})}
                   onClick={() => setOpen(false)}
                   className="block rounded-2xl px-3 py-4 text-2xl font-bold text-petrol"
                 >
