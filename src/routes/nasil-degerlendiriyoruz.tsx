@@ -43,7 +43,7 @@ const axes = [
 
 const process = [
   {
-    title: "Kitap tamamen okunur.
+    title: "Kitap tamamen okunur.",
     text: "Tanıtım metni veya arka kapak özetine güvenmeyiz. Değerlendirme yazılmadan önce kitabın tamamı okunur.",
   },
   {
