@@ -45,8 +45,9 @@
   --color-yesil: var(--yesil);
   --color-mercan: var(--mercan);
 
-  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Lora", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
 
   --shadow-soft: 0 2px 12px rgba(1, 61, 74, 0.07);
   --shadow-lift: 0 8px 24px rgba(1, 61, 74, 0.1);
@@ -131,11 +132,18 @@
     line-height: 1.25;
   }
 
+  svg.lucide {
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
   :focus-visible {
     outline: 3px solid var(--color-petrol);
     outline-offset: 2px;
     border-radius: 4px;
   }
+
 
   .on-dark :focus-visible,
   .on-yellow :focus-visible {
