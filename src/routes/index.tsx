@@ -97,8 +97,8 @@ function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="on-yellow bg-sari pb-8">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 pt-10 pb-6 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:pt-16">
+      <section className="on-yellow relative overflow-hidden bg-sari pb-0 lg:pb-8">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 pt-10 pb-0 sm:px-6 lg:grid-cols-2 lg:gap-14 lg:pt-16 lg:pb-6">
           <div>
             <h1 className="kead-in text-petrol" style={{ animationDelay: "80ms" }}>
               Çocuğunuzun eline geçen kitabı önce biz okuyoruz.
@@ -118,7 +118,7 @@ function Home() {
             </div>
           </div>
           <div
-            className="kead-in order-last -mb-6 flex items-end justify-center lg:kead-float lg:mb-0"
+            className="kead-in relative z-10 order-last -mb-8 flex items-end justify-center self-end lg:kead-float lg:mb-0"
             style={{ animationDelay: "320ms" }}
           >
             <PhoneMock />
