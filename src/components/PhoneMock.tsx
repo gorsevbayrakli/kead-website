@@ -6,7 +6,7 @@ export function PhoneMock() {
       <img
         src={mockup.url}
         alt=""
-        className="block w-full select-none drop-shadow-[0_30px_50px_rgba(1,61,74,0.22)]"
+        className="block w-full select-none drop-shadow-[0_18px_28px_rgba(1,61,74,0.16)]"
         loading="eager"
         decoding="async"
       />
