@@ -293,6 +293,29 @@ export const books: Book[] = [
     palette: "pembe",
   },
   {
+    slug: "kucuk-deniz-kizi",
+    title: "Küçük Deniz Kızı",
+    author: "Hans Christian Andersen",
+    publisher: "Ardıç Çocuk",
+    ageBand: "9-12",
+    ratings: { ageFit: 5, educational: 5, emotionalSafety: 3 },
+    verdict: "guided",
+    tags: ["Klasik masal", "Fedakarlık", "Aşk", "Özveri", "Hüzün"],
+    summary:
+      "Hans Christian Andersen'in 1837'de yayımladığı bu masalda, derinlerin prensesi küçük deniz kızı insanların dünyasına duyduğu hayranlık ve bir prense olan aşkı uğruna sesini büyücüye verip bacak sahibi olur. Prens onu seçmeyince ne ölümsüz hayata geri döner ne de insan olur; deniz köpüğüne dönüşür. Andersen'in masal dünyasının en hüzün verici ve derin eseri; arzu, fedakarlık ve karşılıksız aşkın trajik güzelliği üzerine.",
+    expertOpinion: {
+      expert: "Dr. Aylin Öztoprak",
+      title: "Uzman Klinik Psikolog",
+      text: "İstekler, fedakarlık ve değerlerin ağır bedelini çocuklara dokunaklı biçimde sunar. Deniz kızının trajik sonu çocukları arzuların sınırları ve özverinin gerçek anlamı üzerine düşündürür.",
+    },
+    meters: { visual: 85, positiveMessage: 72, educational: 88 },
+    comments: [
+      c("Ece", "Eyl 2024", 5, "On yaşındaki kızım sonunu okuyunca ağladı, sonra uzun uzun nedenini konuştuk.", 19),
+      c("Murat", "Ağu 2024", 4, "Güzel ama küçük çocuklar için biraz ağır, biz dokuzunda okuduk.", 8),
+    ],
+    palette: "gok",
+  },
+  {
     slug: "yarim-kalan-mektup",
     title: "Yarım Kalan Mektup",
     author: "Ceren Alp",
