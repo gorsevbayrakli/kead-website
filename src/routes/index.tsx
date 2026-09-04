@@ -118,7 +118,7 @@ function Home() {
             </div>
           </div>
           <div
-            className="kead-in order-last -mb-6 flex items-end justify-center lg:kead-float lg:mb-0"
+            className="kead-in relative z-10 order-last -mb-8 flex items-end justify-center self-end lg:kead-float lg:mb-0"
             style={{ animationDelay: "320ms" }}
           >
             <PhoneMock />
