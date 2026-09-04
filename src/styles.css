@@ -45,8 +45,9 @@
   --color-yesil: var(--yesil);
   --color-mercan: var(--mercan);
 
-  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Lora", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+
 
   --shadow-soft: 0 2px 12px rgba(1, 61, 74, 0.07);
   --shadow-lift: 0 8px 24px rgba(1, 61, 74, 0.1);
