@@ -16,10 +16,12 @@ import { Route as IletisimRouteImport } from './routes/iletisim'
 import { Route as KirmiziBayraklarRouteImport } from './routes/kirmizi-bayraklar'
 import { Route as KullanimKosullariRouteImport } from './routes/kullanim-kosullari'
 import { Route as KvkkRouteImport } from './routes/kvkk'
+import { Route as McpRouteImport } from './routes/mcp'
 import { Route as NasilCalisirRouteImport } from './routes/nasil-calisir'
 import { Route as NasilDegerlendiriyoruzRouteImport } from './routes/nasil-degerlendiriyoruz'
 import { Route as SssRouteImport } from './routes/sss'
 import { Route as YasBantlariRouteImport } from './routes/yas-bantlari'
+import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as KitaplarIndexRouteImport } from './routes/kitaplar.index'
 import { Route as KitaplarSlugRouteImport } from './routes/kitaplar.$slug'
 import { Route as KonularIndexRouteImport } from './routes/konular.index'
@@ -60,6 +62,11 @@ const KvkkRoute = KvkkRouteImport.update({
   path: '/kvkk',
   getParentRoute: () => rootRouteImport,
 } as any)
+const McpRoute = McpRouteImport.update({
+  id: '/mcp',
+  path: '/mcp',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NasilCalisirRoute = NasilCalisirRouteImport.update({
   id: '/nasil-calisir',
   path: '/nasil-calisir',
@@ -80,6 +87,12 @@ const YasBantlariRoute = YasBantlariRouteImport.update({
   path: '/yas-bantlari',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Char91DotwellKnownChar93OauthProtectedResourceRoute =
+  Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
+    id: '/.well-known/oauth-protected-resource',
+    path: '/.well-known/oauth-protected-resource',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const KitaplarIndexRoute = KitaplarIndexRouteImport.update({
   id: '/kitaplar/',
   path: '/kitaplar/',
@@ -109,10 +122,12 @@ export interface FileRoutesByFullPath {
   '/kirmizi-bayraklar': typeof KirmiziBayraklarRoute
   '/kullanim-kosullari': typeof KullanimKosullariRoute
   '/kvkk': typeof KvkkRoute
+  '/mcp': typeof McpRoute
   '/nasil-calisir': typeof NasilCalisirRoute
   '/nasil-degerlendiriyoruz': typeof NasilDegerlendiriyoruzRoute
   '/sss': typeof SssRoute
   '/yas-bantlari': typeof YasBantlariRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/kitaplar/$slug': typeof KitaplarSlugRoute
   '/konular/$slug': typeof KonularSlugRoute
   '/kitaplar/': typeof KitaplarIndexRoute
@@ -126,10 +141,12 @@ export interface FileRoutesByTo {
   '/kirmizi-bayraklar': typeof KirmiziBayraklarRoute
   '/kullanim-kosullari': typeof KullanimKosullariRoute
   '/kvkk': typeof KvkkRoute
+  '/mcp': typeof McpRoute
   '/nasil-calisir': typeof NasilCalisirRoute
   '/nasil-degerlendiriyoruz': typeof NasilDegerlendiriyoruzRoute
   '/sss': typeof SssRoute
   '/yas-bantlari': typeof YasBantlariRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/kitaplar/$slug': typeof KitaplarSlugRoute
   '/konular/$slug': typeof KonularSlugRoute
   '/kitaplar': typeof KitaplarIndexRoute
@@ -144,10 +161,12 @@ export interface FileRoutesById {
   '/kirmizi-bayraklar': typeof KirmiziBayraklarRoute
   '/kullanim-kosullari': typeof KullanimKosullariRoute
   '/kvkk': typeof KvkkRoute
+  '/mcp': typeof McpRoute
   '/nasil-calisir': typeof NasilCalisirRoute
   '/nasil-degerlendiriyoruz': typeof NasilDegerlendiriyoruzRoute
   '/sss': typeof SssRoute
   '/yas-bantlari': typeof YasBantlariRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/kitaplar/$slug': typeof KitaplarSlugRoute
   '/konular/$slug': typeof KonularSlugRoute
   '/kitaplar/': typeof KitaplarIndexRoute
@@ -163,10 +182,12 @@ export interface FileRouteTypes {
     | '/kirmizi-bayraklar'
     | '/kullanim-kosullari'
     | '/kvkk'
+    | '/mcp'
     | '/nasil-calisir'
     | '/nasil-degerlendiriyoruz'
     | '/sss'
     | '/yas-bantlari'
+    | '/.well-known/oauth-protected-resource'
     | '/kitaplar/$slug'
     | '/konular/$slug'
     | '/kitaplar/'
@@ -180,10 +201,12 @@ export interface FileRouteTypes {
     | '/kirmizi-bayraklar'
     | '/kullanim-kosullari'
     | '/kvkk'
+    | '/mcp'
     | '/nasil-calisir'
     | '/nasil-degerlendiriyoruz'
     | '/sss'
     | '/yas-bantlari'
+    | '/.well-known/oauth-protected-resource'
     | '/kitaplar/$slug'
     | '/konular/$slug'
     | '/kitaplar'
@@ -197,10 +220,12 @@ export interface FileRouteTypes {
     | '/kirmizi-bayraklar'
     | '/kullanim-kosullari'
     | '/kvkk'
+    | '/mcp'
     | '/nasil-calisir'
     | '/nasil-degerlendiriyoruz'
     | '/sss'
     | '/yas-bantlari'
+    | '/.well-known/oauth-protected-resource'
     | '/kitaplar/$slug'
     | '/konular/$slug'
     | '/kitaplar/'
@@ -215,10 +240,12 @@ export interface RootRouteChildren {
   KirmiziBayraklarRoute: typeof KirmiziBayraklarRoute
   KullanimKosullariRoute: typeof KullanimKosullariRoute
   KvkkRoute: typeof KvkkRoute
+  McpRoute: typeof McpRoute
   NasilCalisirRoute: typeof NasilCalisirRoute
   NasilDegerlendiriyoruzRoute: typeof NasilDegerlendiriyoruzRoute
   SssRoute: typeof SssRoute
   YasBantlariRoute: typeof YasBantlariRoute
+  Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   KitaplarSlugRoute: typeof KitaplarSlugRoute
   KonularSlugRoute: typeof KonularSlugRoute
   KitaplarIndexRoute: typeof KitaplarIndexRoute
@@ -276,6 +303,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KvkkRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mcp': {
+      id: '/mcp'
+      path: '/mcp'
+      fullPath: '/mcp'
+      preLoaderRoute: typeof McpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/nasil-calisir': {
       id: '/nasil-calisir'
       path: '/nasil-calisir'
@@ -302,6 +336,13 @@ declare module '@tanstack/react-router' {
       path: '/yas-bantlari'
       fullPath: '/yas-bantlari'
       preLoaderRoute: typeof YasBantlariRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/.well-known/oauth-protected-resource': {
+      id: '/.well-known/oauth-protected-resource'
+      path: '/.well-known/oauth-protected-resource'
+      fullPath: '/.well-known/oauth-protected-resource'
+      preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kitaplar/': {
@@ -343,10 +384,13 @@ const rootRouteChildren: RootRouteChildren = {
   KirmiziBayraklarRoute: KirmiziBayraklarRoute,
   KullanimKosullariRoute: KullanimKosullariRoute,
   KvkkRoute: KvkkRoute,
+  McpRoute: McpRoute,
   NasilCalisirRoute: NasilCalisirRoute,
   NasilDegerlendiriyoruzRoute: NasilDegerlendiriyoruzRoute,
   SssRoute: SssRoute,
   YasBantlariRoute: YasBantlariRoute,
+  Char91DotwellKnownChar93OauthProtectedResourceRoute:
+    Char91DotwellKnownChar93OauthProtectedResourceRoute,
   KitaplarSlugRoute: KitaplarSlugRoute,
   KonularSlugRoute: KonularSlugRoute,
   KitaplarIndexRoute: KitaplarIndexRoute,
