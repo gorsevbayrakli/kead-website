@@ -1,0 +1,145 @@
+{
+  "version": 1,
+  "sdk_version": "2.0.4",
+  "path": "/mcp",
+  "auth": {
+    "type": "oauth",
+    "issuer": "https://exbfottbxbfulneavppm.supabase.co/auth/v1",
+    "accepted_audiences": [
+      "authenticated"
+    ]
+  },
+  "mcp": {
+    "server": {
+      "name": "kead-kitap-rehberi",
+      "version": "0.1.0",
+      "title": "Kead Kitap Rehberi"
+    },
+    "tools": [
+      {
+        "name": "list_books",
+        "title": "Kitapları listele",
+        "description": "Kead'de değerlendirilmiş çocuk kitaplarını listeler. Yaş bandı, karar (tavsiye durumu) ve serbest metin aramasıyla filtrelenebilir.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Başlık, yazar, yayınevi veya etikette aranacak metin."
+            },
+            "ageBand": {
+              "type": "string",
+              "enum": [
+                "0-3",
+                "3-6",
+                "6-9",
+                "9-12",
+                "12-15"
+              ],
+              "description": "Yaş bandı filtresi."
+            },
+            "verdict": {
+              "type": "string",
+              "enum": [
+                "recommended",
+                "guided",
+                "restricted"
+              ],
+              "description": "Kead kararına göre filtre."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_book",
+        "title": "Kitap değerlendirmesini getir",
+        "description": "Bir kitabın tam Kead değerlendirmesini döndürür: özet, üç eksenli puanlar, uzman görüşü ve ebeveyn yorumları.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "slug": {
+              "type": "string",
+              "description": "Kitabın slug değeri, örn. kucuk-deniz-kizi."
+            }
+          },
+          "required": [
+            "slug"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_articles",
+        "title": "Yazıları listele",
+        "description": "Kead'in ebeveynlere yönelik yazılarını listeler. Kategori ve arama metniyle filtrelenebilir.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Başlık veya özette aranacak metin."
+            },
+            "category": {
+              "type": "string",
+              "enum": [
+                "Gelişim",
+                "Yeni doğan",
+                "Okul çağı",
+                "+12"
+              ],
+              "description": "Kategori filtresi."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_article",
+        "title": "Yazıyı getir",
+        "description": "Bir Kead yazısının tam metnini ve ilişkili kitaplarını döndürür.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "slug": {
+              "type": "string",
+              "description": "Yazının slug değeri, örn. cocuklarda-itiraz."
+            }
+          },
+          "required": [
+            "slug"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}

@@ -10,24 +10,33 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GirisRouteImport } from './routes/giris'
 import { Route as GizlilikRouteImport } from './routes/gizlilik'
 import { Route as HakkimizdaRouteImport } from './routes/hakkimizda'
 import { Route as IletisimRouteImport } from './routes/iletisim'
 import { Route as KirmiziBayraklarRouteImport } from './routes/kirmizi-bayraklar'
 import { Route as KullanimKosullariRouteImport } from './routes/kullanim-kosullari'
 import { Route as KvkkRouteImport } from './routes/kvkk'
+import { Route as McpRouteImport } from './routes/mcp'
 import { Route as NasilCalisirRouteImport } from './routes/nasil-calisir'
 import { Route as NasilDegerlendiriyoruzRouteImport } from './routes/nasil-degerlendiriyoruz'
 import { Route as SssRouteImport } from './routes/sss'
 import { Route as YasBantlariRouteImport } from './routes/yas-bantlari'
+import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as KitaplarIndexRouteImport } from './routes/kitaplar.index'
 import { Route as KitaplarSlugRouteImport } from './routes/kitaplar.$slug'
 import { Route as KonularIndexRouteImport } from './routes/konular.index'
 import { Route as KonularSlugRouteImport } from './routes/konular.$slug'
+import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GirisRoute = GirisRouteImport.update({
+  id: '/giris',
+  path: '/giris',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GizlilikRoute = GizlilikRouteImport.update({
@@ -60,6 +69,11 @@ const KvkkRoute = KvkkRouteImport.update({
   path: '/kvkk',
   getParentRoute: () => rootRouteImport,
 } as any)
+const McpRoute = McpRouteImport.update({
+  id: '/mcp',
+  path: '/mcp',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NasilCalisirRoute = NasilCalisirRouteImport.update({
   id: '/nasil-calisir',
   path: '/nasil-calisir',
@@ -80,6 +94,12 @@ const YasBantlariRoute = YasBantlariRouteImport.update({
   path: '/yas-bantlari',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Char91DotwellKnownChar93OauthProtectedResourceRoute =
+  Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
+    id: '/.well-known/oauth-protected-resource',
+    path: '/.well-known/oauth-protected-resource',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const KitaplarIndexRoute = KitaplarIndexRouteImport.update({
   id: '/kitaplar/',
   path: '/kitaplar/',
@@ -100,129 +120,162 @@ const KonularSlugRoute = KonularSlugRouteImport.update({
   path: '/konular/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DotlovableOauthConsentRoute = DotlovableOauthConsentRouteImport.update({
+  id: '/.lovable/oauth/consent',
+  path: '/.lovable/oauth/consent',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/giris': typeof GirisRoute
   '/gizlilik': typeof GizlilikRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
   '/kirmizi-bayraklar': typeof KirmiziBayraklarRoute
   '/kullanim-kosullari': typeof KullanimKosullariRoute
   '/kvkk': typeof KvkkRoute
+  '/mcp': typeof McpRoute
   '/nasil-calisir': typeof NasilCalisirRoute
   '/nasil-degerlendiriyoruz': typeof NasilDegerlendiriyoruzRoute
   '/sss': typeof SssRoute
   '/yas-bantlari': typeof YasBantlariRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/kitaplar/$slug': typeof KitaplarSlugRoute
   '/konular/$slug': typeof KonularSlugRoute
   '/kitaplar/': typeof KitaplarIndexRoute
   '/konular/': typeof KonularIndexRoute
+  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/giris': typeof GirisRoute
   '/gizlilik': typeof GizlilikRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
   '/kirmizi-bayraklar': typeof KirmiziBayraklarRoute
   '/kullanim-kosullari': typeof KullanimKosullariRoute
   '/kvkk': typeof KvkkRoute
+  '/mcp': typeof McpRoute
   '/nasil-calisir': typeof NasilCalisirRoute
   '/nasil-degerlendiriyoruz': typeof NasilDegerlendiriyoruzRoute
   '/sss': typeof SssRoute
   '/yas-bantlari': typeof YasBantlariRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/kitaplar/$slug': typeof KitaplarSlugRoute
   '/konular/$slug': typeof KonularSlugRoute
   '/kitaplar': typeof KitaplarIndexRoute
   '/konular': typeof KonularIndexRoute
+  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/giris': typeof GirisRoute
   '/gizlilik': typeof GizlilikRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
   '/kirmizi-bayraklar': typeof KirmiziBayraklarRoute
   '/kullanim-kosullari': typeof KullanimKosullariRoute
   '/kvkk': typeof KvkkRoute
+  '/mcp': typeof McpRoute
   '/nasil-calisir': typeof NasilCalisirRoute
   '/nasil-degerlendiriyoruz': typeof NasilDegerlendiriyoruzRoute
   '/sss': typeof SssRoute
   '/yas-bantlari': typeof YasBantlariRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/kitaplar/$slug': typeof KitaplarSlugRoute
   '/konular/$slug': typeof KonularSlugRoute
   '/kitaplar/': typeof KitaplarIndexRoute
   '/konular/': typeof KonularIndexRoute
+  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/giris'
     | '/gizlilik'
     | '/hakkimizda'
     | '/iletisim'
     | '/kirmizi-bayraklar'
     | '/kullanim-kosullari'
     | '/kvkk'
+    | '/mcp'
     | '/nasil-calisir'
     | '/nasil-degerlendiriyoruz'
     | '/sss'
     | '/yas-bantlari'
+    | '/.well-known/oauth-protected-resource'
     | '/kitaplar/$slug'
     | '/konular/$slug'
     | '/kitaplar/'
     | '/konular/'
+    | '/.lovable/oauth/consent'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/giris'
     | '/gizlilik'
     | '/hakkimizda'
     | '/iletisim'
     | '/kirmizi-bayraklar'
     | '/kullanim-kosullari'
     | '/kvkk'
+    | '/mcp'
     | '/nasil-calisir'
     | '/nasil-degerlendiriyoruz'
     | '/sss'
     | '/yas-bantlari'
+    | '/.well-known/oauth-protected-resource'
     | '/kitaplar/$slug'
     | '/konular/$slug'
     | '/kitaplar'
     | '/konular'
+    | '/.lovable/oauth/consent'
   id:
     | '__root__'
     | '/'
+    | '/giris'
     | '/gizlilik'
     | '/hakkimizda'
     | '/iletisim'
     | '/kirmizi-bayraklar'
     | '/kullanim-kosullari'
     | '/kvkk'
+    | '/mcp'
     | '/nasil-calisir'
     | '/nasil-degerlendiriyoruz'
     | '/sss'
     | '/yas-bantlari'
+    | '/.well-known/oauth-protected-resource'
     | '/kitaplar/$slug'
     | '/konular/$slug'
     | '/kitaplar/'
     | '/konular/'
+    | '/.lovable/oauth/consent'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GirisRoute: typeof GirisRoute
   GizlilikRoute: typeof GizlilikRoute
   HakkimizdaRoute: typeof HakkimizdaRoute
   IletisimRoute: typeof IletisimRoute
   KirmiziBayraklarRoute: typeof KirmiziBayraklarRoute
   KullanimKosullariRoute: typeof KullanimKosullariRoute
   KvkkRoute: typeof KvkkRoute
+  McpRoute: typeof McpRoute
   NasilCalisirRoute: typeof NasilCalisirRoute
   NasilDegerlendiriyoruzRoute: typeof NasilDegerlendiriyoruzRoute
   SssRoute: typeof SssRoute
   YasBantlariRoute: typeof YasBantlariRoute
+  Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   KitaplarSlugRoute: typeof KitaplarSlugRoute
   KonularSlugRoute: typeof KonularSlugRoute
   KitaplarIndexRoute: typeof KitaplarIndexRoute
   KonularIndexRoute: typeof KonularIndexRoute
+  DotlovableOauthConsentRoute: typeof DotlovableOauthConsentRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -232,6 +285,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/giris': {
+      id: '/giris'
+      path: '/giris'
+      fullPath: '/giris'
+      preLoaderRoute: typeof GirisRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gizlilik': {
@@ -276,6 +336,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KvkkRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mcp': {
+      id: '/mcp'
+      path: '/mcp'
+      fullPath: '/mcp'
+      preLoaderRoute: typeof McpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/nasil-calisir': {
       id: '/nasil-calisir'
       path: '/nasil-calisir'
@@ -302,6 +369,13 @@ declare module '@tanstack/react-router' {
       path: '/yas-bantlari'
       fullPath: '/yas-bantlari'
       preLoaderRoute: typeof YasBantlariRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/.well-known/oauth-protected-resource': {
+      id: '/.well-known/oauth-protected-resource'
+      path: '/.well-known/oauth-protected-resource'
+      fullPath: '/.well-known/oauth-protected-resource'
+      preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kitaplar/': {
@@ -332,25 +406,37 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KonularSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/.lovable/oauth/consent': {
+      id: '/.lovable/oauth/consent'
+      path: '/.lovable/oauth/consent'
+      fullPath: '/.lovable/oauth/consent'
+      preLoaderRoute: typeof DotlovableOauthConsentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GirisRoute: GirisRoute,
   GizlilikRoute: GizlilikRoute,
   HakkimizdaRoute: HakkimizdaRoute,
   IletisimRoute: IletisimRoute,
   KirmiziBayraklarRoute: KirmiziBayraklarRoute,
   KullanimKosullariRoute: KullanimKosullariRoute,
   KvkkRoute: KvkkRoute,
+  McpRoute: McpRoute,
   NasilCalisirRoute: NasilCalisirRoute,
   NasilDegerlendiriyoruzRoute: NasilDegerlendiriyoruzRoute,
   SssRoute: SssRoute,
   YasBantlariRoute: YasBantlariRoute,
+  Char91DotwellKnownChar93OauthProtectedResourceRoute:
+    Char91DotwellKnownChar93OauthProtectedResourceRoute,
   KitaplarSlugRoute: KitaplarSlugRoute,
   KonularSlugRoute: KonularSlugRoute,
   KitaplarIndexRoute: KitaplarIndexRoute,
   KonularIndexRoute: KonularIndexRoute,
+  DotlovableOauthConsentRoute: DotlovableOauthConsentRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
