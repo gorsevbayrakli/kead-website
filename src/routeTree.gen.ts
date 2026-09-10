@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GirisRouteImport } from './routes/giris'
 import { Route as GizlilikRouteImport } from './routes/gizlilik'
 import { Route as HakkimizdaRouteImport } from './routes/hakkimizda'
 import { Route as IletisimRouteImport } from './routes/iletisim'
@@ -26,10 +27,16 @@ import { Route as KitaplarIndexRouteImport } from './routes/kitaplar.index'
 import { Route as KitaplarSlugRouteImport } from './routes/kitaplar.$slug'
 import { Route as KonularIndexRouteImport } from './routes/konular.index'
 import { Route as KonularSlugRouteImport } from './routes/konular.$slug'
+import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GirisRoute = GirisRouteImport.update({
+  id: '/giris',
+  path: '/giris',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GizlilikRoute = GizlilikRouteImport.update({
@@ -113,9 +120,15 @@ const KonularSlugRoute = KonularSlugRouteImport.update({
   path: '/konular/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DotlovableOauthConsentRoute = DotlovableOauthConsentRouteImport.update({
+  id: '/.lovable/oauth/consent',
+  path: '/.lovable/oauth/consent',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/giris': typeof GirisRoute
   '/gizlilik': typeof GizlilikRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
@@ -132,9 +145,11 @@ export interface FileRoutesByFullPath {
   '/konular/$slug': typeof KonularSlugRoute
   '/kitaplar/': typeof KitaplarIndexRoute
   '/konular/': typeof KonularIndexRoute
+  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/giris': typeof GirisRoute
   '/gizlilik': typeof GizlilikRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
@@ -151,10 +166,12 @@ export interface FileRoutesByTo {
   '/konular/$slug': typeof KonularSlugRoute
   '/kitaplar': typeof KitaplarIndexRoute
   '/konular': typeof KonularIndexRoute
+  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/giris': typeof GirisRoute
   '/gizlilik': typeof GizlilikRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
@@ -171,11 +188,13 @@ export interface FileRoutesById {
   '/konular/$slug': typeof KonularSlugRoute
   '/kitaplar/': typeof KitaplarIndexRoute
   '/konular/': typeof KonularIndexRoute
+  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/giris'
     | '/gizlilik'
     | '/hakkimizda'
     | '/iletisim'
@@ -192,9 +211,11 @@ export interface FileRouteTypes {
     | '/konular/$slug'
     | '/kitaplar/'
     | '/konular/'
+    | '/.lovable/oauth/consent'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/giris'
     | '/gizlilik'
     | '/hakkimizda'
     | '/iletisim'
@@ -211,9 +232,11 @@ export interface FileRouteTypes {
     | '/konular/$slug'
     | '/kitaplar'
     | '/konular'
+    | '/.lovable/oauth/consent'
   id:
     | '__root__'
     | '/'
+    | '/giris'
     | '/gizlilik'
     | '/hakkimizda'
     | '/iletisim'
@@ -230,10 +253,12 @@ export interface FileRouteTypes {
     | '/konular/$slug'
     | '/kitaplar/'
     | '/konular/'
+    | '/.lovable/oauth/consent'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GirisRoute: typeof GirisRoute
   GizlilikRoute: typeof GizlilikRoute
   HakkimizdaRoute: typeof HakkimizdaRoute
   IletisimRoute: typeof IletisimRoute
@@ -250,6 +275,7 @@ export interface RootRouteChildren {
   KonularSlugRoute: typeof KonularSlugRoute
   KitaplarIndexRoute: typeof KitaplarIndexRoute
   KonularIndexRoute: typeof KonularIndexRoute
+  DotlovableOauthConsentRoute: typeof DotlovableOauthConsentRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -259,6 +285,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/giris': {
+      id: '/giris'
+      path: '/giris'
+      fullPath: '/giris'
+      preLoaderRoute: typeof GirisRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gizlilik': {
@@ -373,11 +406,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof KonularSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/.lovable/oauth/consent': {
+      id: '/.lovable/oauth/consent'
+      path: '/.lovable/oauth/consent'
+      fullPath: '/.lovable/oauth/consent'
+      preLoaderRoute: typeof DotlovableOauthConsentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GirisRoute: GirisRoute,
   GizlilikRoute: GizlilikRoute,
   HakkimizdaRoute: HakkimizdaRoute,
   IletisimRoute: IletisimRoute,
@@ -395,6 +436,7 @@ const rootRouteChildren: RootRouteChildren = {
   KonularSlugRoute: KonularSlugRoute,
   KitaplarIndexRoute: KitaplarIndexRoute,
   KonularIndexRoute: KonularIndexRoute,
+  DotlovableOauthConsentRoute: DotlovableOauthConsentRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
