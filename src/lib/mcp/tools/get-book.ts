@@ -20,7 +20,7 @@ export default defineTool({
     const payload = { ...book, verdictLabel: verdictLabels[book.verdict], url: `/kitaplar/${book.slug}` };
     return {
       content: [{ type: "text", text: JSON.stringify(payload, null, 2) }],
-      structuredContent: { book: payload },
+      structuredContent: JSON.parse(JSON.stringify({ book: payload })),
     };
   },
 });
