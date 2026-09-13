@@ -73,8 +73,8 @@ function HowPage() {
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <h2 className="text-white">Değerlendirme kartı böyle görünüyor</h2>
           <p className="mt-3 text-base text-white/85">
-            Sekmeler arasında geçiş yapın: aynı kitabın genel bakışını ve ebeveyn
-            yorumlarını görebilirsiniz.
+            Sekmeler arasında geçiş yapın: aynı kitabın genel bakışını ve ebeveyn yorumlarını
+            görebilirsiniz.
           </p>
           <div className="mt-7">
             <ReviewShowcase />

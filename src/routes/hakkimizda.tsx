@@ -11,7 +11,10 @@ export const Route = createFileRoute("/hakkimizda")({
           "Kead neden kuruldu, kitapları hangi yöntemle değerlendiriyoruz ve arkasında kimler var?",
       },
       { property: "og:title", content: "Hakkımızda — Kead" },
-      { property: "og:description", content: "Kead'in kuruluş nedeni ve değerlendirme metodolojisi." },
+      {
+        property: "og:description",
+        content: "Kead'in kuruluş nedeni ve değerlendirme metodolojisi.",
+      },
       { property: "og:url", content: "/hakkimizda" },
     ],
     links: [{ rel: "canonical", href: "/hakkimizda" }],
@@ -50,16 +53,15 @@ function AboutPage() {
           uygun olmadığını ancak eve gelip okuduktan sonra fark ettik.
         </p>
         <p className="mt-4 text-base leading-relaxed text-mure/90">
-          Sorun kitapların kötü olması değildi. Sorun, bir kitabın hangi çocuğa, hangi dönemde
-          uygun olduğunu anlatan ortak bir dilin olmamasıydı. Yayınevlerinin yaş etiketleri
-          birbirinden farklı ölçütlere dayanıyor, arka kapak yazıları içeriği değil satışı
-          düşünüyordu.
+          Sorun kitapların kötü olması değildi. Sorun, bir kitabın hangi çocuğa, hangi dönemde uygun
+          olduğunu anlatan ortak bir dilin olmamasıydı. Yayınevlerinin yaş etiketleri birbirinden
+          farklı ölçütlere dayanıyor, arka kapak yazıları içeriği değil satışı düşünüyordu.
         </p>
         <p className="mt-4 text-base leading-relaxed text-mure/90">
           Kead bu boşluğu doldurmak için var. Kitapları okuyoruz, üç eksende değerlendiriyoruz ve
-          kararımızı gerekçesiyle yazıyoruz. Yanına da aynı kitabı çocuğuna okumuş
-          ebeveynlerin deneyimini koyuyoruz. Amacımız sizin yerinize karar vermek değil; kararınızı
-          bilerek verebilmenizi sağlamak.
+          kararımızı gerekçesiyle yazıyoruz. Yanına da aynı kitabı çocuğuna okumuş ebeveynlerin
+          deneyimini koyuyoruz. Amacımız sizin yerinize karar vermek değil; kararınızı bilerek
+          verebilmenizi sağlamak.
         </p>
       </section>
 

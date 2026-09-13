@@ -14,7 +14,7 @@ import { Route as GirisRouteImport } from './routes/giris'
 import { Route as GizlilikRouteImport } from './routes/gizlilik'
 import { Route as HakkimizdaRouteImport } from './routes/hakkimizda'
 import { Route as IletisimRouteImport } from './routes/iletisim'
-import { Route as KirmiziBayraklarRouteImport } from './routes/kirmizi-bayraklar'
+import { Route as DikkatEdilenlerRouteImport } from './routes/dikkat-edilenler'
 import { Route as KullanimKosullariRouteImport } from './routes/kullanim-kosullari'
 import { Route as KvkkRouteImport } from './routes/kvkk'
 import { Route as McpRouteImport } from './routes/mcp'
@@ -54,9 +54,9 @@ const IletisimRoute = IletisimRouteImport.update({
   path: '/iletisim',
   getParentRoute: () => rootRouteImport,
 } as any)
-const KirmiziBayraklarRoute = KirmiziBayraklarRouteImport.update({
-  id: '/kirmizi-bayraklar',
-  path: '/kirmizi-bayraklar',
+const DikkatEdilenlerRoute = DikkatEdilenlerRouteImport.update({
+  id: '/dikkat-edilenler',
+  path: '/dikkat-edilenler',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KullanimKosullariRoute = KullanimKosullariRouteImport.update({
@@ -132,7 +132,7 @@ export interface FileRoutesByFullPath {
   '/gizlilik': typeof GizlilikRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
-  '/kirmizi-bayraklar': typeof KirmiziBayraklarRoute
+  '/dikkat-edilenler': typeof DikkatEdilenlerRoute
   '/kullanim-kosullari': typeof KullanimKosullariRoute
   '/kvkk': typeof KvkkRoute
   '/mcp': typeof McpRoute
@@ -153,7 +153,7 @@ export interface FileRoutesByTo {
   '/gizlilik': typeof GizlilikRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
-  '/kirmizi-bayraklar': typeof KirmiziBayraklarRoute
+  '/dikkat-edilenler': typeof DikkatEdilenlerRoute
   '/kullanim-kosullari': typeof KullanimKosullariRoute
   '/kvkk': typeof KvkkRoute
   '/mcp': typeof McpRoute
@@ -175,7 +175,7 @@ export interface FileRoutesById {
   '/gizlilik': typeof GizlilikRoute
   '/hakkimizda': typeof HakkimizdaRoute
   '/iletisim': typeof IletisimRoute
-  '/kirmizi-bayraklar': typeof KirmiziBayraklarRoute
+  '/dikkat-edilenler': typeof DikkatEdilenlerRoute
   '/kullanim-kosullari': typeof KullanimKosullariRoute
   '/kvkk': typeof KvkkRoute
   '/mcp': typeof McpRoute
@@ -198,7 +198,7 @@ export interface FileRouteTypes {
     | '/gizlilik'
     | '/hakkimizda'
     | '/iletisim'
-    | '/kirmizi-bayraklar'
+    | '/dikkat-edilenler'
     | '/kullanim-kosullari'
     | '/kvkk'
     | '/mcp'
@@ -219,7 +219,7 @@ export interface FileRouteTypes {
     | '/gizlilik'
     | '/hakkimizda'
     | '/iletisim'
-    | '/kirmizi-bayraklar'
+    | '/dikkat-edilenler'
     | '/kullanim-kosullari'
     | '/kvkk'
     | '/mcp'
@@ -240,7 +240,7 @@ export interface FileRouteTypes {
     | '/gizlilik'
     | '/hakkimizda'
     | '/iletisim'
-    | '/kirmizi-bayraklar'
+    | '/dikkat-edilenler'
     | '/kullanim-kosullari'
     | '/kvkk'
     | '/mcp'
@@ -262,7 +262,7 @@ export interface RootRouteChildren {
   GizlilikRoute: typeof GizlilikRoute
   HakkimizdaRoute: typeof HakkimizdaRoute
   IletisimRoute: typeof IletisimRoute
-  KirmiziBayraklarRoute: typeof KirmiziBayraklarRoute
+  DikkatEdilenlerRoute: typeof DikkatEdilenlerRoute
   KullanimKosullariRoute: typeof KullanimKosullariRoute
   KvkkRoute: typeof KvkkRoute
   McpRoute: typeof McpRoute
@@ -315,11 +315,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IletisimRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/kirmizi-bayraklar': {
-      id: '/kirmizi-bayraklar'
-      path: '/kirmizi-bayraklar'
-      fullPath: '/kirmizi-bayraklar'
-      preLoaderRoute: typeof KirmiziBayraklarRouteImport
+    '/dikkat-edilenler': {
+      id: '/dikkat-edilenler'
+      path: '/dikkat-edilenler'
+      fullPath: '/dikkat-edilenler'
+      preLoaderRoute: typeof DikkatEdilenlerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kullanim-kosullari': {
@@ -422,7 +422,7 @@ const rootRouteChildren: RootRouteChildren = {
   GizlilikRoute: GizlilikRoute,
   HakkimizdaRoute: HakkimizdaRoute,
   IletisimRoute: IletisimRoute,
-  KirmiziBayraklarRoute: KirmiziBayraklarRoute,
+  DikkatEdilenlerRoute: DikkatEdilenlerRoute,
   KullanimKosullariRoute: KullanimKosullariRoute,
   KvkkRoute: KvkkRoute,
   McpRoute: McpRoute,

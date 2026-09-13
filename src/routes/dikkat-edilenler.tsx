@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { WaitlistForm } from "@/components/WaitlistForm";
 import { AlertTriangle, BookOpen, HeartCrack, Moon, Users } from "lucide-react";
 
-export const Route = createFileRoute("/kirmizi-bayraklar")({
+export const Route = createFileRoute("/dikkat-edilenler")({
   head: () => ({
     meta: [
       { title: "Dikkat Edilenler — Kead" },
@@ -16,9 +16,9 @@ export const Route = createFileRoute("/kirmizi-bayraklar")({
         property: "og:description",
         content: "Çocuk kitaplarında öne çıkan uyarı işaretleri.",
       },
-      { property: "og:url", content: "/kirmizi-bayraklar" },
+      { property: "og:url", content: "/dikkat-edilenler" },
     ],
-    links: [{ rel: "canonical", href: "/kirmizi-bayraklar" }],
+    links: [{ rel: "canonical", href: "/dikkat-edilenler" }],
   }),
   component: RedFlagsPage,
 });

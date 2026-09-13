@@ -62,8 +62,20 @@ export const books: Book[] = [
     },
     meters: { visual: 88, positiveMessage: 74, educational: 66 },
     comments: [
-      c("Zehra", "Nis 2024", 5, "On aylık oğlum sayfaları kendi çeviriyor. Kalın sayfa olması çok iyi düşünülmüş.", 12),
-      c("Merve", "Mar 2024", 4, "Metin bence fazla kısa ama o yaşta zaten kimse dinlemiyor, doğru karar.", 4),
+      c(
+        "Zehra",
+        "Nis 2024",
+        5,
+        "On aylık oğlum sayfaları kendi çeviriyor. Kalın sayfa olması çok iyi düşünülmüş.",
+        12,
+      ),
+      c(
+        "Merve",
+        "Mar 2024",
+        4,
+        "Metin bence fazla kısa ama o yaşta zaten kimse dinlemiyor, doğru karar.",
+        4,
+      ),
     ],
     palette: "seftali",
   },
@@ -85,9 +97,20 @@ export const books: Book[] = [
     },
     meters: { visual: 79, positiveMessage: 91, educational: 58 },
     comments: [
-      c("Ayşe", "Şub 2024", 5, "Akşam rutinimizin parçası oldu. Kitap bitince ışığı kapatıyoruz, tartışma bitti.", 31, [
-        { author: "Gülcan", date: "Şub 2024", text: "Bizde de aynı işe yaradı, ikinci kopyayı anneannede tutuyoruz." },
-      ]),
+      c(
+        "Ayşe",
+        "Şub 2024",
+        5,
+        "Akşam rutinimizin parçası oldu. Kitap bitince ışığı kapatıyoruz, tartışma bitti.",
+        31,
+        [
+          {
+            author: "Gülcan",
+            date: "Şub 2024",
+            text: "Bizde de aynı işe yaradı, ikinci kopyayı anneannede tutuyoruz.",
+          },
+        ],
+      ),
     ],
     palette: "gok",
   },
@@ -109,7 +132,13 @@ export const books: Book[] = [
     },
     meters: { visual: 82, positiveMessage: 87, educational: 71 },
     comments: [
-      c("Fahriye", "Oca 2024", 4, "Dört yaşındaki kızım tilki bölümünü ezberledi. Resimler sakin, göz yormuyor.", 9),
+      c(
+        "Fahriye",
+        "Oca 2024",
+        4,
+        "Dört yaşındaki kızım tilki bölümünü ezberledi. Resimler sakin, göz yormuyor.",
+        9,
+      ),
       c("Okan", "Ara 2023", 5, "Her akşam bir bölüm okuyoruz, tam kıvamında uzunluk.", 6),
     ],
     palette: "nane",
@@ -132,7 +161,13 @@ export const books: Book[] = [
     },
     meters: { visual: 74, positiveMessage: 84, educational: 89 },
     comments: [
-      c("Serra", "May 2024", 5, "Oğlum artık 'karnım sıkışıyor' diyebiliyor. Bunu bu kitaptan öğrendi.", 27),
+      c(
+        "Serra",
+        "May 2024",
+        5,
+        "Oğlum artık 'karnım sıkışıyor' diyebiliyor. Bunu bu kitaptan öğrendi.",
+        27,
+      ),
       c("Hakan", "Nis 2024", 4, "Güzel ama son sayfa biraz aceleye gelmiş gibi.", 3),
     ],
     palette: "pembe",
@@ -154,7 +189,15 @@ export const books: Book[] = [
       text: "Matematiği bağlamdan koparmadan veren kitaplar okul öncesinde daha iyi tutunuyor. Ebeveynin gerçekten mutfağa girmesi gerekiyor; kitap tek başına okunduğunda etkisinin yarısını kaybediyor.",
     },
     meters: { visual: 70, positiveMessage: 76, educational: 93 },
-    comments: [c("Nihan", "Mar 2024", 4, "Kitapla birlikte kurabiye yaptık, oğlum bir hafta bundan bahsetti.", 15)],
+    comments: [
+      c(
+        "Nihan",
+        "Mar 2024",
+        4,
+        "Kitapla birlikte kurabiye yaptık, oğlum bir hafta bundan bahsetti.",
+        15,
+      ),
+    ],
     palette: "sari-soft",
   },
   {
@@ -175,9 +218,20 @@ export const books: Book[] = [
     },
     meters: { visual: 86, positiveMessage: 41, educational: 55 },
     comments: [
-      c("Gizem", "Şub 2024", 2, "Beş yaşındaki kızıma okuduğuma pişman oldum, iki gece lamba açık uyudu.", 44, [
-        { author: "Burak", date: "Şub 2024", text: "Biz dokuz yaşındaki oğluma okuduk, bayıldı. Gerçekten yaş meselesi." },
-      ]),
+      c(
+        "Gizem",
+        "Şub 2024",
+        2,
+        "Beş yaşındaki kızıma okuduğuma pişman oldum, iki gece lamba açık uyudu.",
+        44,
+        [
+          {
+            author: "Burak",
+            date: "Şub 2024",
+            text: "Biz dokuz yaşındaki oğluma okuduk, bayıldı. Gerçekten yaş meselesi.",
+          },
+        ],
+      ),
     ],
     palette: "gok",
   },
@@ -199,7 +253,13 @@ export const books: Book[] = [
     },
     meters: { visual: 65, positiveMessage: 80, educational: 78 },
     comments: [
-      c("Zeynep", "Haz 2024", 5, "Kendi kendine bitirdiği ilk kitap oldu. O gururu görmek paha biçilmez.", 38),
+      c(
+        "Zeynep",
+        "Haz 2024",
+        5,
+        "Kendi kendine bitirdiği ilk kitap oldu. O gururu görmek paha biçilmez.",
+        38,
+      ),
       c("Emre", "May 2024", 4, "Sondaki çözüm biraz kolay ama çocuk için sorun değil.", 7),
     ],
     palette: "nane",
@@ -222,7 +282,13 @@ export const books: Book[] = [
     },
     meters: { visual: 62, positiveMessage: 68, educational: 85 },
     comments: [
-      c("Selin", "Nis 2024", 4, "Kızım okurken sustu, sonra kendi sınıfından bahsetti. Konuşma kapısı açtı.", 22),
+      c(
+        "Selin",
+        "Nis 2024",
+        4,
+        "Kızım okurken sustu, sonra kendi sınıfından bahsetti. Konuşma kapısı açtı.",
+        22,
+      ),
     ],
     palette: "seftali",
   },
@@ -243,7 +309,9 @@ export const books: Book[] = [
       text: "Bilgi kitaplarında en sık gördüğüm sorun, bilginin doğrulanabilir olmaması. Bu kitap ölçek karşılaştırmalarını somut nesnelerle veriyor; soyut sayıların çocukta karşılığı olmadığı için bu doğru bir tercih.",
     },
     meters: { visual: 90, positiveMessage: 72, educational: 95 },
-    comments: [c("Cem", "Tem 2024", 5, "Oğlum artık gezegenlerin sırasını benden iyi biliyor.", 19)],
+    comments: [
+      c("Cem", "Tem 2024", 5, "Oğlum artık gezegenlerin sırasını benden iyi biliyor.", 19),
+    ],
     palette: "gok",
   },
   {
@@ -264,7 +332,13 @@ export const books: Book[] = [
     },
     meters: { visual: 58, positiveMessage: 83, educational: 74 },
     comments: [
-      c("Duygu", "Ağu 2024", 5, "On yaşındaki kızım iki günde bitirdi. Sonra bana en iyi arkadaşını anlattı.", 41),
+      c(
+        "Duygu",
+        "Ağu 2024",
+        5,
+        "On yaşındaki kızım iki günde bitirdi. Sonra bana en iyi arkadaşını anlattı.",
+        41,
+      ),
       c("Levent", "Tem 2024", 4, "Roman geçişinde iyi bir kitap, ne çok kolay ne çok ağır.", 11),
     ],
     palette: "nane",
@@ -287,7 +361,13 @@ export const books: Book[] = [
     },
     meters: { visual: 55, positiveMessage: 64, educational: 92 },
     comments: [
-      c("Pınar", "Eyl 2024", 5, "Kitabı önce ben okudum, sonra birlikte konuştuk. Bu şekilde çok değerli.", 33),
+      c(
+        "Pınar",
+        "Eyl 2024",
+        5,
+        "Kitabı önce ben okudum, sonra birlikte konuştuk. Bu şekilde çok değerli.",
+        33,
+      ),
       c("Tuna", "Ağu 2024", 3, "Bazı bölümler on yaş için ağır geldi bize.", 8),
     ],
     palette: "pembe",
@@ -310,8 +390,20 @@ export const books: Book[] = [
     },
     meters: { visual: 85, positiveMessage: 72, educational: 88 },
     comments: [
-      c("Ece", "Eyl 2024", 5, "On yaşındaki kızım sonunu okuyunca ağladı, sonra uzun uzun nedenini konuştuk.", 19),
-      c("Murat", "Ağu 2024", 4, "Güzel ama küçük çocuklar için biraz ağır, biz dokuzunda okuduk.", 8),
+      c(
+        "Ece",
+        "Eyl 2024",
+        5,
+        "On yaşındaki kızım sonunu okuyunca ağladı, sonra uzun uzun nedenini konuştuk.",
+        19,
+      ),
+      c(
+        "Murat",
+        "Ağu 2024",
+        4,
+        "Güzel ama küçük çocuklar için biraz ağır, biz dokuzunda okuduk.",
+        8,
+      ),
     ],
     palette: "gok",
   },
@@ -332,7 +424,15 @@ export const books: Book[] = [
       text: "Ergenlikte kimlik kurma süreci aile hikâyesiyle doğrudan ilişkili. Kuşaklar arası anlatı sunan kitaplar, gencin kendini bir devamlılık içinde konumlandırmasını kolaylaştırıyor.",
     },
     meters: { visual: 52, positiveMessage: 81, educational: 79 },
-    comments: [c("Ebru", "Eki 2024", 5, "On üç yaşındaki oğlum okuduktan sonra dedesini aradı. Yeter bu bana.", 52)],
+    comments: [
+      c(
+        "Ebru",
+        "Eki 2024",
+        5,
+        "On üç yaşındaki oğlum okuduktan sonra dedesini aradı. Yeter bu bana.",
+        52,
+      ),
+    ],
     palette: "seftali",
   },
   {
@@ -353,8 +453,20 @@ export const books: Book[] = [
     },
     meters: { visual: 82, positiveMessage: 80, educational: 70 },
     comments: [
-      c("Selin", "Kas 2024", 5, "Yedi yaşındaki kızım tek oturuşta bitirdi, ilk kez bir kitabı kendi okudu.", 14),
-      c("Deniz", "Eki 2024", 4, "Mizahı çocuğun çok hoşuna gitti, hemen serinin diğerlerini sordu.", 6),
+      c(
+        "Selin",
+        "Kas 2024",
+        5,
+        "Yedi yaşındaki kızım tek oturuşta bitirdi, ilk kez bir kitabı kendi okudu.",
+        14,
+      ),
+      c(
+        "Deniz",
+        "Eki 2024",
+        4,
+        "Mizahı çocuğun çok hoşuna gitti, hemen serinin diğerlerini sordu.",
+        6,
+      ),
     ],
     palette: "nane",
   },

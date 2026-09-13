@@ -63,8 +63,8 @@ function EvaluationPage() {
         <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
           <h1>Nasıl Değerlendiriyoruz?</h1>
           <p className="mt-4 text-lg leading-relaxed text-mure">
-            Her kitabı tek bir fikre indirgemeden, üç bağımsız eksende ve
-            gerekçeli bir karar şeridiyle inceliyoruz.
+            Her kitabı tek bir fikre indirgemeden, üç bağımsız eksende ve gerekçeli bir karar
+            şeridiyle inceliyoruz.
           </p>
         </div>
       </section>

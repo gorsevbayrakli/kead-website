@@ -8,7 +8,7 @@ type NavLink = { to: string; label: string; hash?: string };
 const links: NavLink[] = [
   { to: "/nasil-degerlendiriyoruz", label: "Nasıl Değerlendiriyoruz" },
   { to: "/yas-bantlari", label: "Yaş Bantları" },
-  { to: "/kirmizi-bayraklar", label: "Dikkat Edilenler" },
+  { to: "/dikkat-edilenler", label: "Dikkat Edilenler" },
   { to: "/", hash: "katil", label: "Erken Erişim" },
 ];
 

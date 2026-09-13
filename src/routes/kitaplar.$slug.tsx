@@ -15,7 +15,9 @@ export const Route = createFileRoute("/kitaplar/$slug")({
   },
   head: ({ loaderData, params }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Kitap bulunamadı — Kead" }, { name: "robots", content: "noindex" }] };
+      return {
+        meta: [{ title: "Kitap bulunamadı — Kead" }, { name: "robots", content: "noindex" }],
+      };
     }
     const b = loaderData.book;
     const desc = b.summary.slice(0, 155);
@@ -37,13 +39,18 @@ export const Route = createFileRoute("/kitaplar/$slug")({
 function BookDetail() {
   const { book } = Route.useLoaderData();
   const avg = (book.ratings.ageFit + book.ratings.educational + book.ratings.emotionalSafety) / 3;
-  const related = books.filter((b) => b.slug !== book.slug && b.ageBand === book.ageBand).slice(0, 3);
+  const related = books
+    .filter((b) => b.slug !== book.slug && b.ageBand === book.ageBand)
+    .slice(0, 3);
   const fallback = books.filter((b) => b.slug !== book.slug).slice(0, 3);
   const suggestions = related.length >= 2 ? related : fallback;
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
-      <Link to="/kitaplar" className="text-sm font-semibold text-petrol underline underline-offset-4">
+      <Link
+        to="/kitaplar"
+        className="text-sm font-semibold text-petrol underline underline-offset-4"
+      >
         Kitaplar
       </Link>
 
@@ -81,7 +88,10 @@ function BookDetail() {
 
       <div className="mt-6 flex flex-wrap gap-2">
         {book.tags.map((t) => (
-          <span key={t} className="rounded-full bg-sari-soft px-3 py-1.5 text-sm font-semibold text-mure">
+          <span
+            key={t}
+            className="rounded-full bg-sari-soft px-3 py-1.5 text-sm font-semibold text-mure"
+          >
             {t}
           </span>
         ))}

@@ -37,7 +37,8 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Kead — Çocuk kitaplarını önce biz okuyoruz" },
       {
         property: "og:description",
-        content: "Yaşa uygunluk, eğitici değer ve duygusal güvenlik ekseninde kitap değerlendirmeleri.",
+        content:
+          "Yaşa uygunluk, eğitici değer ve duygusal güvenlik ekseninde kitap değerlendirmeleri.",
       },
       { property: "og:url", content: "/" },
     ],
@@ -122,7 +123,6 @@ function Home() {
           >
             <PhoneMock />
           </div>
-
         </div>
       </section>
       <div className="-mt-8 h-8 rounded-t-[2rem] bg-white" />
@@ -185,7 +185,9 @@ function Home() {
               {axes.map((a, i) => (
                 <Reveal key={a.title} variant="left" delay={i * 120}>
                   <h3 className="text-sari">{a.title}</h3>
-                  <p className="mt-1.5 max-w-md text-base leading-relaxed text-white/85">{a.text}</p>
+                  <p className="mt-1.5 max-w-md text-base leading-relaxed text-white/85">
+                    {a.text}
+                  </p>
                   <div className="mt-2">
                     <Stars value={a.score} label={`Örnek puan: 5 üzerinden ${a.score}`} />
                   </div>
@@ -199,8 +201,8 @@ function Home() {
 
           <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-white/85">
             <li className="flex items-center gap-2">
-              <span className="h-3 w-3 rounded-full bg-nane" aria-hidden="true" /> Kesinlikle tavsiye
-              edilir — yaş bandına tam uyuyor.
+              <span className="h-3 w-3 rounded-full bg-nane" aria-hidden="true" /> Kesinlikle
+              tavsiye edilir — yaş bandına tam uyuyor.
             </li>
             <li className="flex items-center gap-2">
               <span className="h-3 w-3 rounded-full bg-sari" aria-hidden="true" /> Ebeveyn
@@ -251,7 +253,10 @@ function Home() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <h2 className="max-w-2xl">Sadece kitap değil, çocuğunuzu da anlatıyoruz.</h2>
-            <Link to="/konular" className="text-sm font-bold text-petrol underline underline-offset-4">
+            <Link
+              to="/konular"
+              className="text-sm font-bold text-petrol underline underline-offset-4"
+            >
               Tümü
             </Link>
           </div>
