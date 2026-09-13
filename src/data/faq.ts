@@ -14,7 +14,7 @@ export const faq: FaqItem[] = [
   },
   {
     q: "Değerlendirmeleri kim yapıyor?",
-    a: "Her kitap önce editör ekibimiz tarafından baştan sona okunuyor. Duygusal güvenlik ekseninde tereddüt yaratan kitaplar, danışman psikolog ve çocuk gelişimi uzmanlarımıza yönlendiriliyor. Uzman görüşü yayımlandığında hangi uzmanın yazdığı isim ve unvanla birlikte görünüyor.",
+    a: "Her kitap önce editör ekibimiz tarafından baştan sona okunuyor. Tanıtım metnine veya arka kapak özetine güvenmeden, kitabın tamamı okunduktan sonra üç bağımsız eksende ve gerekçeli bir kararla değerlendiriliyor.",
   },
   {
     q: "Çocuğumun verileri ne oluyor?",

@@ -4,9 +4,8 @@ import { Stars } from "./Stars";
 import { Meter } from "./Meter";
 import { VerdictBadge } from "./VerdictBadge";
 import { BookCover } from "./BookCover";
-import { initials } from "@/data/experts";
 
-const tabs = ["Genel bakış", "Uzman görüşü", "Ebeveyn yorumları"] as const;
+const tabs = ["Genel bakış", "Ebeveyn yorumları"] as const;
 
 export function ReviewShowcase() {
   const [tab, setTab] = useState<(typeof tabs)[number]>("Genel bakış");
@@ -62,21 +61,6 @@ export function ReviewShowcase() {
             <Meter label="Görsellik" value={book.meters.visual} />
             <Meter label="Pozitif mesaj" value={book.meters.positiveMessage} />
             <Meter label="Öğretici içerik" value={book.meters.educational} />
-          </div>
-        )}
-
-        {tab === "Uzman görüşü" && (
-          <div className="rounded-2xl bg-sis p-4">
-            <div className="flex items-center gap-3">
-              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-petrol text-sm font-bold text-white">
-                {initials(book.expertOpinion.expert)}
-              </span>
-              <div className="min-w-0">
-                <p className="truncate font-bold text-petrol">{book.expertOpinion.expert}</p>
-                <p className="text-xs text-muted-foreground">{book.expertOpinion.title}</p>
-              </div>
-            </div>
-            <p className="mt-3 border-l-4 border-sari pl-3">{book.expertOpinion.text}</p>
           </div>
         )}
 

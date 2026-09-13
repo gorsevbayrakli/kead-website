@@ -51,10 +51,6 @@ const process = [
     text: "Kapaktaki yaş etiketi başlangıç noktasıdır. Kelime düzeyi, cümle uzunluğu, soyut kavram yoğunluğu ve temaların duygusal ağırlığı birlikte değerlendirilir.",
   },
   {
-    title: "Uzman görüşü alınır.",
-    text: "Korku, kayıp, şiddet veya örseleyici içerik barındıran kitaplar danışman psikolog ve çocuk gelişimi uzmanlarımıza yönlendirilir.",
-  },
-  {
     title: "Karar gerekçesiyle yazılır.",
     text: "Bir kitabı 'bu yaş için önerilmez' olarak işaretlediğimizde nedenini açıkça yazarız. Çoğu durumda aynı kitap daha büyük bir yaş bandında tavsiye edilir.",
   },

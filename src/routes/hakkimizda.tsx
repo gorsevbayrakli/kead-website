@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { experts, initials } from "@/data/experts";
 import { WaitlistForm } from "@/components/WaitlistForm";
 
 export const Route = createFileRoute("/hakkimizda")({
@@ -30,10 +29,6 @@ const method = [
     text: "Kapaktaki yaş etiketi başlangıç noktasıdır, bağlayıcı değildir. Kelime düzeyi, cümle uzunluğu, soyut kavram yoğunluğu ve temaların duygusal ağırlığı birlikte değerlendirilir.",
   },
   {
-    title: "Tereddütlü kitaplar uzmana gider.",
-    text: "Korku, kayıp, şiddet ya da örseleyici içerik barındıran kitaplar danışman psikolog ve çocuk gelişimi uzmanlarımıza yönlendirilir. Görüş, yazan kişinin adı ve unvanıyla yayımlanır.",
-  },
-  {
     title: "Karar gerekçesiyle yazılır.",
     text: "Bir kitabı 'bu yaş için önerilmez' olarak işaretlediğimizde nedenini açıkça yazarız. Çoğu durumda aynı kitap daha büyük bir yaş bandında tavsiye edilir.",
   },
@@ -62,7 +57,7 @@ function AboutPage() {
         </p>
         <p className="mt-4 text-base leading-relaxed text-mure/90">
           Kead bu boşluğu doldurmak için var. Kitapları okuyoruz, üç eksende değerlendiriyoruz ve
-          kararımızı gerekçesiyle yazıyoruz. Yanına da uzman görüşünü ve aynı kitabı çocuğuna okumuş
+          kararımızı gerekçesiyle yazıyoruz. Yanına da aynı kitabı çocuğuna okumuş
           ebeveynlerin deneyimini koyuyoruz. Amacımız sizin yerinize karar vermek değil; kararınızı
           bilerek verebilmenizi sağlamak.
         </p>
@@ -84,22 +79,6 @@ function AboutPage() {
               </li>
             ))}
           </ol>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-        <h2>Danışman ekibimiz</h2>
-        <div className="mt-7 grid gap-5 md:grid-cols-3">
-          {experts.map((e) => (
-            <div key={e.name} className="rounded-2xl bg-sis p-6">
-              <span className="grid h-12 w-12 place-items-center rounded-full bg-petrol font-bold text-white">
-                {initials(e.name)}
-              </span>
-              <h3 className="mt-4 text-lg">{e.name}</h3>
-              <p className="text-sm font-semibold text-muted-foreground">{e.title}</p>
-              <p className="mt-2 text-sm text-mure/85">{e.focus}</p>
-            </div>
-          ))}
         </div>
       </section>
 

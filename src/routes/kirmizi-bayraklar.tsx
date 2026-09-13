@@ -90,7 +90,7 @@ function RedFlagsPage() {
         <div className="rounded-2xl bg-sari p-6 sm:p-8">
           <h2 className="text-center">Kead bunu sizin yerinize değil, sizinle birlikte yapar.</h2>
           <p className="mx-auto mt-3 max-w-xl text-center text-base leading-relaxed text-mure/85">
-            Her değerlendirmenin altında karar gerekçesi, uzman görüşü ve aynı
+            Her değerlendirmenin altında karar gerekçesi ve aynı
             kitabı okumuş ebeveynlerin deneyimi yer alır.
           </p>
           <div className="mt-6">

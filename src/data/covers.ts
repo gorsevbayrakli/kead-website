@@ -5,6 +5,7 @@ import geceBekcisi from "@/assets/covers/gece-bekcisi.jpg";
 import gezegenlerDefteri from "@/assets/covers/gezegenler-defteri.jpg";
 import kayipAnahtar from "@/assets/covers/kayip-anahtar.jpg";
 import kirmiziKitap from "@/assets/covers/kirmizi-kitap.jpg";
+import kucukCadiSeroks from "@/assets/covers/kucuk-cadi-seroks.jpg";
 import kucukDenizKizi from "@/assets/covers/kucuk-deniz-kizi.jpg";
 import ormanArkadaslarim from "@/assets/covers/orman-arkadaslarim.jpg";
 import sayilarMutfakta from "@/assets/covers/sayilar-mutfakta.jpg";
@@ -20,6 +21,7 @@ export const bookCovers: Record<string, string> = {
   "gezegenler-defteri": gezegenlerDefteri,
   "kayip-anahtar": kayipAnahtar,
   "kirmizi-kitap": kirmiziKitap,
+  "kucuk-cadi-seroks": kucukCadiSeroks,
   "kucuk-deniz-kizi": kucukDenizKizi,
   "orman-arkadaslarim": ormanArkadaslarim,
   "sayilar-mutfakta": sayilarMutfakta,

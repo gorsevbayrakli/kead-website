@@ -32,7 +32,7 @@ const steps = [
   },
   {
     title: "Kitabın değerlendirmesini okuyun.",
-    text: "Üç eksenli puan, kitabın konusu, uzman görüşü ve diğer ebeveynlerin yorumları tek ekranda. Kararı en altta net bir şeritle görürsünüz.",
+    text: "Üç eksenli puan, kitabın konusu ve diğer ebeveynlerin yorumları tek ekranda. Kararı en altta net bir şeritle görürsünüz.",
   },
   {
     title: "Okuyun, puanlayın, kitaplığınızı büyütün.",
@@ -73,7 +73,7 @@ function HowPage() {
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <h2 className="text-white">Değerlendirme kartı böyle görünüyor</h2>
           <p className="mt-3 text-base text-white/85">
-            Sekmeler arasında geçiş yapın: aynı kitabın genel bakışını, uzman görüşünü ve ebeveyn
+            Sekmeler arasında geçiş yapın: aynı kitabın genel bakışını ve ebeveyn
             yorumlarını görebilirsiniz.
           </p>
           <div className="mt-7">

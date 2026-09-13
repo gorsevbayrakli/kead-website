@@ -17,7 +17,6 @@ import { Stars } from "@/components/Stars";
 import { Reveal } from "@/components/Reveal";
 import { CoverMarquee } from "@/components/CoverMarquee";
 import { articles } from "@/data/articles";
-import { experts, initials } from "@/data/experts";
 import { faq } from "@/data/faq";
 import {
   Accordion,
@@ -33,7 +32,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Kead, her çocuk kitabını yaşa uygunluk, eğitici değer ve duygusal güvenlik açısından değerlendirir. Uzman görüşü ve gerçek ebeveyn deneyimi bir arada.",
+          "Kead, her çocuk kitabını yaşa uygunluk, eğitici değer ve duygusal güvenlik açısından değerlendirir. Gerçek ebeveyn deneyimiyle bir arada.",
       },
       { property: "og:title", content: "Kead — Çocuk kitaplarını önce biz okuyoruz" },
       {
@@ -48,7 +47,7 @@ export const Route = createFileRoute("/")({
 });
 
 const trust = [
-  { icon: BookOpenCheck, text: "Uzman psikolog ve pedagog değerlendirmesi" },
+  { icon: BookOpenCheck, text: "Kitabın tamamı okunarak değerlendirme" },
   { icon: CalendarRange, text: "Yaş bandına göre öneri" },
   { icon: MessagesSquare, text: "Gerçek ebeveyn yorumları" },
   { icon: Users, text: "Her çocuk için ayrı profil" },
@@ -108,7 +107,7 @@ function Home() {
               style={{ animationDelay: "160ms" }}
             >
               Kead, her çocuk kitabını yaşa uygunluk, eğitici değer ve duygusal güvenlik açısından
-              değerlendirir. Uzman görüşü ve gerçek ebeveyn deneyimi bir arada.
+              değerlendirir. Gerçek ebeveyn deneyimiyle bir arada.
             </p>
             <div className="kead-in mt-7 max-w-lg" style={{ animationDelay: "240ms" }} id="katil">
               <WaitlistForm />
@@ -260,30 +259,6 @@ function Home() {
             {articles.slice(0, 3).map((a, i) => (
               <Reveal key={a.slug} delay={i * 110} className="h-full">
                 <ArticleCard article={a} />
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Uzmanlar */}
-      <section className="bg-white py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <h2>Değerlendirmeler uzman katkısıyla hazırlanıyor.</h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-mure/85">
-            Her kitap önce editör ekibimiz tarafından baştan sona okunuyor. Duygusal güvenlik
-            ekseninde tereddüt yaratan kitaplar danışman uzmanlarımıza yönlendiriliyor. Uzman görüşü
-            yayımlandığında kimin yazdığı adı ve unvanıyla birlikte görünüyor.
-          </p>
-          <div className="mt-8 grid gap-5 md:grid-cols-3">
-            {experts.map((e, i) => (
-              <Reveal key={e.name} delay={i * 110} className="hover-lift rounded-2xl bg-sis p-6">
-                <span className="grid h-12 w-12 place-items-center rounded-full bg-petrol font-bold text-white">
-                  {initials(e.name)}
-                </span>
-                <h3 className="mt-4 text-lg">{e.name}</h3>
-                <p className="text-sm font-semibold text-muted-foreground">{e.title}</p>
-                <p className="mt-2 text-sm text-mure/85">{e.focus}</p>
               </Reveal>
             ))}
           </div>

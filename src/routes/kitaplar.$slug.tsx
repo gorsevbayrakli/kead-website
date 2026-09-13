@@ -6,7 +6,6 @@ import { Stars } from "@/components/Stars";
 import { Meter } from "@/components/Meter";
 import { VerdictBadge } from "@/components/VerdictBadge";
 import { BookCard } from "@/components/BookCard";
-import { initials } from "@/data/experts";
 
 export const Route = createFileRoute("/kitaplar/$slug")({
   loader: ({ params }) => {
@@ -100,21 +99,6 @@ function BookDetail() {
           <Meter label="Pozitif mesaj" value={book.meters.positiveMessage} />
           <Meter label="Öğretici içerik" value={book.meters.educational} />
         </div>
-      </section>
-
-      <section className="mt-10 rounded-3xl bg-sis p-6">
-        <div className="flex items-center gap-3">
-          <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-petrol font-bold text-white">
-            {initials(book.expertOpinion.expert)}
-          </span>
-          <div className="min-w-0">
-            <h2 className="truncate text-lg">{book.expertOpinion.expert}</h2>
-            <p className="text-sm text-muted-foreground">{book.expertOpinion.title}</p>
-          </div>
-        </div>
-        <p className="mt-4 border-l-4 border-sari pl-4 text-base leading-relaxed text-mure">
-          {book.expertOpinion.text}
-        </p>
       </section>
 
       <div className="mt-8">

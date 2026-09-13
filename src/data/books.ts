@@ -335,6 +335,29 @@ export const books: Book[] = [
     comments: [c("Ebru", "Eki 2024", 5, "On üç yaşındaki oğlum okuduktan sonra dedesini aradı. Yeter bu bana.", 52)],
     palette: "seftali",
   },
+  {
+    slug: "kucuk-cadi-seroks",
+    title: "Küçük Cadı Şeroks",
+    author: "Aslı Der",
+    publisher: "Günışığı Kitaplığı",
+    ageBand: "6-9",
+    ratings: { ageFit: 5, educational: 4, emotionalSafety: 5 },
+    verdict: "recommended",
+    tags: ["İlk okuma", "Mizah", "Cadı", "Macera"],
+    summary:
+      "Büyümekte olan küçük bir cadının ters giden büyülerini, kendine özgü çözümlerini ve minik maceralarını mizahi bir dille anlatan bir ilk okuma kitabı. Kısa bölümleri, bol diyaloğu ve sıcak çizgileriyle bağımsız okumaya yeni geçen çocuklar için akıcı bir başlangıç.",
+    expertOpinion: {
+      expert: "Kead Editör Ekibi",
+      title: "Değerlendirme",
+      text: "İlk okuma dönemindeki çocuklar için kısa bölümler ve mizah, okuma isteğini canlı tutuyor. Karakterin hatalarından ders çıkarması, çocuğa güvenli bir örnek sunuyor.",
+    },
+    meters: { visual: 82, positiveMessage: 80, educational: 70 },
+    comments: [
+      c("Selin", "Kas 2024", 5, "Yedi yaşındaki kızım tek oturuşta bitirdi, ilk kez bir kitabı kendi okudu.", 14),
+      c("Deniz", "Eki 2024", 4, "Mizahı çocuğun çok hoşuna gitti, hemen serinin diğerlerini sordu.", 6),
+    ],
+    palette: "nane",
+  },
 ];
 
 export const getBook = (slug: string) => books.find((b) => b.slug === slug);
