@@ -13,10 +13,6 @@ export const faq: FaqItem[] = [
     a: "Bir kitap önce yaş bandı, tema ve dil düzeyi açısından sınıflandırılıyor. Ardından üç eksende puanlanıyor: yaş uygunluğu, eğitici değer ve duygusal güvenlik. Çocuğunuzun profilinde yer alan yaş, gelişim dönemi ve ilgi alanları bu puanlarla eşleştiriliyor. Öneriler ne kadar çok kitap puanlarsanız o kadar isabetli hale geliyor.",
   },
   {
-    q: "Değerlendirmeleri kim yapıyor?",
-    a: "Her kitap önce editör ekibimiz tarafından baştan sona okunuyor. Tanıtım metnine veya arka kapak özetine güvenmeden, kitabın tamamı okunduktan sonra üç bağımsız eksende ve gerekçeli bir kararla değerlendiriliyor.",
-  },
-  {
     q: "Çocuğumun verileri ne oluyor?",
     a: "Çocuk profilinde yalnızca ad (veya takma ad), doğum yılı ve ilgi alanları tutuluyor. Çocuğun fotoğrafını istemiyoruz, avatarlar hazır setten seçiliyor. Bu veriler öneri üretmek dışında hiçbir amaçla kullanılmıyor ve üçüncü taraflarla paylaşılmıyor.",
   },
