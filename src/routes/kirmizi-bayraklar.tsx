@@ -5,13 +5,13 @@ import { AlertTriangle, BookOpen, HeartCrack, Moon, Users } from "lucide-react";
 export const Route = createFileRoute("/kirmizi-bayraklar")({
   head: () => ({
     meta: [
-      { title: "Kırmızı Bayraklar — Kead" },
+      { title: "Dikkat Edilenler — Kead" },
       {
         name: "description",
         content:
-          "Çocuk kitaplarında dikkat edilmesi gereken kırmızı bayraklar: içerik, yaş uygunluğu ve duygusal güvenlik.",
+          "Çocuk kitaplarında dikkat edilmesi gereken noktalar: içerik, yaş uygunluğu ve duygusal güvenlik.",
       },
-      { property: "og:title", content: "Kırmızı Bayraklar — Kead" },
+      { property: "og:title", content: "Dikkat Edilenler — Kead" },
       {
         property: "og:description",
         content: "Çocuk kitaplarında öne çıkan uyarı işaretleri.",
@@ -56,10 +56,10 @@ function RedFlagsPage() {
     <div>
       <section className="bg-petrol py-14 text-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
-          <h1 className="text-white">Kırmızı Bayraklar</h1>
+          <h1 className="text-white">Dikkat Edilenler</h1>
           <p className="mt-4 text-lg leading-relaxed text-white/90">
-            Her kitap her yaşa uygun değildir. İşte çocuğunuz için seçim
-            yaparken dikkat etmeniz gereken uyarı işaretleri.
+            Her kitap her yaşa uygun değildir. İşte çocuğunuz için seçim yaparken dikkat etmeniz
+            gereken uyarı işaretleri.
           </p>
         </div>
       </section>
@@ -90,8 +90,8 @@ function RedFlagsPage() {
         <div className="rounded-2xl bg-sari p-6 sm:p-8">
           <h2 className="text-center">Kead bunu sizin yerinize değil, sizinle birlikte yapar.</h2>
           <p className="mx-auto mt-3 max-w-xl text-center text-base leading-relaxed text-mure/85">
-            Her değerlendirmenin altında karar gerekçesi ve aynı
-            kitabı okumuş ebeveynlerin deneyimi yer alır.
+            Her değerlendirmenin altında karar gerekçesi ve aynı kitabı okumuş ebeveynlerin deneyimi
+            yer alır.
           </p>
           <div className="mt-6">
             <WaitlistForm id="redflags-email" />
